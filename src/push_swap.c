@@ -6,64 +6,32 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:24 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/26 23:09:39 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/28 18:52:33 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-
-typedef struct	s_node
-{
-	int	value;
-	struct s_node	*next;
-}	t_node;
-
-t_node	*init_stack(int argc, char **argv)
-{
-	t_node	*stack;
-	t_node	*another_node;
-	int		i;
-
-	stack = NULL;
-	i = 1;
-	while (i < argc)
-	{
-		another_node = (t_node *)malloc(sizeof(t_node));
-		if (!anoter_node)
-			return (NULL);
-		another_node->value = atoi(argv[i]);
-		another_node->next = stack;
-		stack = another_node;
-		i++;
-	}
-	return (stack);
-}
-
-void	print_stack(t_node *stack)
-{
-	while (stack)
-	{
-		printf("%d\n", stack->value);
-		stack = stack->next;
-	}
-}
+#include "../includes/push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	t_node	*stack_a;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		i;
 
 	if (argc < 2)
+		return (0);
+	stack_a = init_stack();
+	stack_b = init_stack();
+	i = argc - 1;
+	while (i > 0)
 	{
-		printf("Usage: ./push_swap [number1] [number2] ... [numberN]\n");
-		return (1);
+		push(stack_a, ft_atoi(argv[i]));
+		i--;
 	}
-	stack_a = init_stack(argc, argv);
-	if (!stack_a)
-	{
-		printf("Stack initialization fail.\n");
-		return (1);
-	}
-	printf("Stack-A initialized.\n");
-	print_stack(stack_a);
+	check_duplicate(stack_a);
+	if (!is_sorted(stack_a))
+		sort_stack(stack_a, stack_b);
+	clear_stack(stack_a);
+	clear_stack(stack_b);
+	return (0);
 }
