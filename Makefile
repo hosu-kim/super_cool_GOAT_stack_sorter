@@ -6,27 +6,39 @@
 #    By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/26 22:12:47 by hoskim            #+#    #+#              #
-#    Updated: 2025/01/28 17:03:23 by hoskim           ###   ########.fr        #
+#    Updated: 2025/01/30 20:22:25 by hoskim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = push_swap.c \
-	   operations.c \
-	   utils.c \
-	   sort.c \
-	   stack.c
-OBJS = $(SRCS:.c=.o)
+INCLUDES = -I./includes
 
-all: $(NAME)
+SRCS_DIR = srcs
+MAIN_DIR = $(SRCS_DIR)/main
+OPS_DIR = $(SRCS_DIR)/OPERATIONS
+STACK_DIR = $(SRCS_DIR)/stack
+UTILS_DIR = $(SRCS_DIR)/utils
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+SRCS = $(MAIN_DIR)/push_swap.c \
+	   $(OPS_DIR)/operations_reverse.c \
+	   $(OPS_DIR)/operation_rotate.c \
+	   $(OPS_DIR)/operation_push.c \
+	   $(OPS_DIR)/operation_swap.c \
+	   $(STACK_DIR)/stack.c \
+	   $(UTILS_DIR)/utils.c \
+	   $(UTILS_DIR)/sort.c
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+OBJS = $(SRCS:.c=.o)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
+
+all: $(NAME)
 
 clean:
 	rm -f $(OBJS)

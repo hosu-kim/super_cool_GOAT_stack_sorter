@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/28 20:04:43 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/30 21:55:44 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,32 +18,36 @@
 
 typedef struct s_node
 {
-	int				num;
+	int				number;
 	struct s_node	*next;
 }	t_node;
 
-typedef struct s_node
+typedef struct s_stack
 {
 	t_node	*top;
 	int		size;
 }	t_stack;
 
-// operations.c
+// operations_swap.c
+// Swap the top two elements of one stack or both.
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
+// Push the top element of one stack to another.
 void	pa(t_stack *stack_a, t_stack *stack_b);
 void	pb(t_stack *stack_a, t_stack *stack_b);
+// Rotate the top element of one stack or both to the bottom.
 void	ra(t_stack *stack_a);
 void	rb(t_stack *stack_b);
 void	rr(t_stack *stack_a, t_stack *stack_b);
+// Rotate the bottom element of one stack or both to the top.
 void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 // stack.c
 t_stack	*init_stack(void);
-void	push(t_stack *stack, int num);
+void	push(t_stack *stack, int number);
 int		pop(t_stack *stack);
 void	clear_stack(t_stack *stack);
 

@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/28 19:25:24 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/30 21:57:47 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,44 @@ t_stack	*init_stack(void)
 	return (stack);
 }
 
-void	push(t_stack *stack, int num)
+void	push(t_stack *stack, int number)
 {
 	t_node	*new;
 
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
 		erorr_exit();
-	new->num = num;
+	new->number = number;
 	new->next = stack->top;
 	stack->top = new;
 	stack->size++;
 }
 
-void	pop(void)
+void	pop(t_stack *stack)
 {
-	return ;
+	t_node	*temp;
+	int		number;
+
+	if (stack->size == 0)
+		error_exit();
+	temp = stack->top;
+	stack->top == temp->next;
+	free(temp);
+	stack->size--;
+	return (number);
 }
 
-void	clear_stack(void)
+void	clear_stack(t_stack *stack)
 {
-	return ;
+	t_node	*current;
+	t_node	*next;
+
+	current = stack->top;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	free(stack);
 }
