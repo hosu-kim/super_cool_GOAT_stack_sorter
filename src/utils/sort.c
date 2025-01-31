@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:25:30 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/28 19:41:38 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 02:42:53 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	sort_three(t_stack *stack_a)
 
 void	sort_stack(t_stack *stack_a, t_stack *stack_b)
 {
-	return ;
+
 }
