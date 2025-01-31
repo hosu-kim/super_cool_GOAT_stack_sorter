@@ -6,15 +6,15 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/30 21:49:58 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 01:46:25 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	error_eixt(void)
+void	error_exit(void)
 {
-	write(2, "Error\n", 6);
+	write(2, "Error.\n", 6);
 	exit(1);
 }
 
@@ -43,11 +43,11 @@ int	ft_atoi(const char *str)
 		*str++;
 	}
 	if (*str != '\0')
-		error_eixt();
+		error_exit();
 	return (sign * result);
 }
 
-void	check_duplicate(t_stack *stack)
+void	same_number_checker(t_stack *stack)
 {
 	t_node	*current;
 	t_node	*check;
@@ -59,7 +59,7 @@ void	check_duplicate(t_stack *stack)
 		while (check)
 		{
 			if (current->number == check->number)
-				error_eixt();
+				error_exit();
 			check = check->next;
 		}
 		current = current->next;

@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/30 21:55:44 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 01:45:23 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	clear_stack(t_stack *stack);
 // utils.c
 void	error_exit(void);
 int		ft_atoi(const char *str);
-void	check_duplicate(t_stack *stack);
+void	same_number_checker(t_stack *stack);
 int		is_sorted(t_stack *stack);
 
 // sort.c
