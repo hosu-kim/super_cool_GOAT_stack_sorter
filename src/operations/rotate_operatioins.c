@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_rotate.c                                 :+:      :+:    :+:   */
+/*   rotate_operatioins.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:48:19 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/28 21:01:05 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 19:57:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ra(t_stack *stack_a)
 	t_node	*first;
 	t_node	*last;
 
-	if (stack_a->size < 2)
+	if (stack_a->num_of_elements < 2)
 		return ;
 	first = stack_a->top;
 	last = first;
@@ -34,7 +34,7 @@ void	rb(t_stack *stack_b)
 	t_node	*first;
 	t_node	*last;
 
-	if (stack_b->size < 2)
+	if (stack_b->num_of_elements < 2)
 		return ;
 	first = stack_b->top;
 	last = first;

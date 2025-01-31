@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 01:46:25 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 19:57:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_exit(void)
 {
-	write(2, "Error.\n", 6);
+	write(2, "Error.\n", 8);
 	exit(1);
 }
 
@@ -70,7 +70,7 @@ int	is_sorted(t_stack *stack)
 {
 	t_node	*current;
 
-	if (stack->size <= 1)
+	if (stack->num_of_elements <= 1)
 		return (1);
 	current = stack->top;
 	while (current->next)

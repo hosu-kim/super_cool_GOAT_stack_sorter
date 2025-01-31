@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 01:45:23 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 19:57:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+// Structure for a single node in a linked list.
 typedef struct s_node
 {
 	int				number;
 	struct s_node	*next;
 }	t_node;
 
+// Structure representing a stack.
 typedef struct s_stack
 {
 	t_node	*top;
-	int		size;
+	int		num_of_elements;
 }	t_stack;
 
 // operations_swap.c

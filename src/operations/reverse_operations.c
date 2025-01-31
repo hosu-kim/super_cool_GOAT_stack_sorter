@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:03:36 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/30 21:57:59 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 19:57:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rra(t_stack *stack_a)
 	t_node	*prev;
 	t_node	*last;
 
-	if (stack_a->size < 2)
+	if (stack_a->num_of_elements < 2)
 		return ;
 	prev = stack_a->top;
 	while (prev->next->next)
@@ -34,7 +34,7 @@ void	rrb(t_stack *stack_b)
 	t_node	*prev;
 	t_node	*last;
 
-	if (stack_b->size < 2)
+	if (stack_b->num_of_elements < 2)
 		return ;
 	prev = stack_b->top;
 	while (prev->next->next)
@@ -48,7 +48,7 @@ void	rrb(t_stack *stack_b)
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size >= 2 && stack_b->size >= 2)
+	if (stack_a->num_of_elements >= 2 && stack_b->num_of_elements >= 2)
 	{
 		rra(stack_a);
 		rrb(stack_b);

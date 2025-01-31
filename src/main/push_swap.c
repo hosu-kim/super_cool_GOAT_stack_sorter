@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:24 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 01:45:23 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 19:50:57 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,13 @@ int	main(int argc, char **argv)
 	clear_stack(stack_b);
 	return (0);
 }
+/* @note 
+	- function usage
+		1. init_stack()			 | stack_manager.c
+		2. push() 				 | stack_manager.c
+		3. ft_atoi() 			 | utils.c
+		4. same_number_checker() | utils.c
+		5. is_sorted()			 | utils.c
+		6. sort_stack()-CORE	 | stack_sorter.c
+		7. clear_stack()		 | stackmanager.c
+*/

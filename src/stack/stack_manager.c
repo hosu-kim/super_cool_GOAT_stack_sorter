@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   stack_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 01:36:58 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 19:57:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*init_stack(void)
 	if (!stack)
 		error_exit();
 	stack->top = NULL;
-	stack->size = 0;
+	stack->num_of_elements = 0;
 	return (stack);
 }
 
@@ -34,7 +34,7 @@ void	push(t_stack *stack, int number)
 	new->number = number;
 	new->next = stack->top;
 	stack->top = new;
-	stack->size++;
+	stack->num_of_elements++;
 }
 
 void	pop(t_stack *stack)
@@ -42,12 +42,12 @@ void	pop(t_stack *stack)
 	t_node	*temp;
 	int		number;
 
-	if (stack->size == 0)
+	if (stack->num_of_elements == 0)
 		error_exit();
 	temp = stack->top;
 	stack->top == temp->next;
 	free(temp);
-	stack->size--;
+	stack->num_of_elements--;
 	return (number);
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_operations.c                                     :+:      :+:    :+:   */
+/*   push_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:42:41 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/30 21:49:36 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 19:57:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	int	number;
 
-	if (stack_b->size == 0)
+	if (stack_b->num_of_elements == 0)
 		return ;
 	number = pop(stack_b);
 	push(stack_a, number);
 	write(1, "pa\n", 3);
 }
+
 // push 1st element of stack B to 1st place of stack A
 void	pb(t_stack *stack_a, t_stack *stack_b)
 {
 	int	number;
 
-	if (stack_a->size == 0)
+	if (stack_a->num_of_elements == 0)
 		return ;
 	number = pop(stack_a);
 	push(stack_b, number);
