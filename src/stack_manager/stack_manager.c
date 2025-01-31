@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 19:57:54 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 22:38:02 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_stack	*init_stack(void)
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		error_exit();
-	stack->top = NULL;
-	stack->num_of_elements = 0;
+	stack->first_node = NULL;
+	stack->num_of_nodes = 0;
 	return (stack);
 }
 
@@ -32,9 +32,9 @@ void	push(t_stack *stack, int number)
 	if (!new)
 		erorr_exit();
 	new->number = number;
-	new->next = stack->top;
-	stack->top = new;
-	stack->num_of_elements++;
+	new->next = stack->first_node;
+	stack->first_node = new;
+	stack->num_of_nodes++;
 }
 
 void	pop(t_stack *stack)
@@ -42,12 +42,12 @@ void	pop(t_stack *stack)
 	t_node	*temp;
 	int		number;
 
-	if (stack->num_of_elements == 0)
+	if (stack->num_of_nodes == 0)
 		error_exit();
-	temp = stack->top;
-	stack->top == temp->next;
+	temp = stack->first_node;
+	stack->first_node == temp->next;
 	free(temp);
-	stack->num_of_elements--;
+	stack->num_of_nodes--;
 	return (number);
 }
 
@@ -56,7 +56,7 @@ void	clear_stack(t_stack *stack)
 	t_node	*current;
 	t_node	*next;
 
-	current = stack->top;
+	current = stack->first_node;
 	while (current)
 	{
 		next = current->next;

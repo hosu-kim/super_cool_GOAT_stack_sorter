@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:59:20 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 19:57:54 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 22:38:02 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	sa(t_stack *stack_a)
 	t_node	*second;
 	int		temp;
 
-	if (stack_a->num_of_elements < 2)
+	if (stack_a->num_of_nodes < 2)
 		return ;
-	first = stack_a->top;
+	first = stack_a->first_node;
 	second = first->next;
 	temp = first->number;
 	first->number = second->number;
@@ -37,9 +37,9 @@ void	sb(t_stack *stack_b)
 	t_node	*second;
 	int		temp;
 
-	if (stack_b->num_of_elements < 2)
+	if (stack_b->num_of_nodes < 2)
 		return ;
-	first = stack_b->top;
+	first = stack_b->first_node;
 	second = first->next;
 	temp = first->number;
 	write(1, "sb\n", 3);

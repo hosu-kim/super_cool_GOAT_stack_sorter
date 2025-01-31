@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:03:36 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 19:57:54 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/01/31 22:38:02 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ void	rra(t_stack *stack_a)
 	t_node	*prev;
 	t_node	*last;
 
-	if (stack_a->num_of_elements < 2)
+	if (stack_a->num_of_nodes < 2)
 		return ;
-	prev = stack_a->top;
+	prev = stack_a->first_node;
 	while (prev->next->next)
 		prev = prev->next;
 	last = prev->next;
 	prev->next = NULL;
-	last->next = stack_a->top;
-	stack_a->top = last;
+	last->next = stack_a->first_node;
+	stack_a->first_node = last;
 	write(1, "rra\n", 4);
 }
 
@@ -34,21 +34,21 @@ void	rrb(t_stack *stack_b)
 	t_node	*prev;
 	t_node	*last;
 
-	if (stack_b->num_of_elements < 2)
+	if (stack_b->num_of_nodes < 2)
 		return ;
-	prev = stack_b->top;
+	prev = stack_b->first_node;
 	while (prev->next->next)
 		prev = prev->next;
 	last = prev->next;
 	prev->next = NULL;
-	last->next = stack_b->top;
-	stack_b->top = last;
+	last->next = stack_b->first_node;
+	stack_b->first_node = last;
 	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->num_of_elements >= 2 && stack_b->num_of_elements >= 2)
+	if (stack_a->num_of_nodes >= 2 && stack_b->num_of_nodes >= 2)
 	{
 		rra(stack_a);
 		rrb(stack_b);
