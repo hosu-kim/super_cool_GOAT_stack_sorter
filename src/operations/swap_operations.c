@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:59:20 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 22:38:02 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/01 15:59:34 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	sb(t_stack *stack_b)
 	first = stack_b->first_node;
 	second = first->next;
 	temp = first->number;
+	first->number = second->number;
+	second->number = temp;
 	write(1, "sb\n", 3);
 }
 

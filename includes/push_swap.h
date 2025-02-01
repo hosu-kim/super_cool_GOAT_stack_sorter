@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 22:57:24 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/01 16:27:32 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 
 // Structure for a single node in a linked list.
@@ -49,7 +50,7 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 // stack_sorter_utils.c
 int		get_min_num(t_stack *stack);
-int		get_max(t_stack *stack);
+int		get_max_num(t_stack *stack);
 void	sort_big(t_stack *stack_a, t_stack *stack_b);
 
 // stack_sorter.c
