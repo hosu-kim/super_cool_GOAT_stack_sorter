@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 16:27:32 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/01 18:55:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,23 @@ typedef struct s_node
 // Structure representing a stack.
 typedef struct s_stack
 {
-	t_node	*first_node;
+	t_node	*top_node;
 	int		num_of_nodes;
 }	t_stack;
 
 // operations_swap.c
-// Swap the first_node two elements of one stack or both.
+// Swap the top_node two elements of one stack or both.
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
-// Push the first_node element of one stack to another.
+// Push the top_node element of one stack to another.
 void	pa(t_stack *stack_a, t_stack *stack_b);
 void	pb(t_stack *stack_a, t_stack *stack_b);
-// Rotate the first_node element of one stack or both to the bottom.
+// Rotate the top_node element of one stack or both to the bottom.
 void	ra(t_stack *stack_a);
 void	rb(t_stack *stack_b);
 void	rr(t_stack *stack_a, t_stack *stack_b);
-// Rotate the bottom element of one stack or both to the first_node.
+// Rotate the bottom element of one stack or both to the top_node.
 void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);

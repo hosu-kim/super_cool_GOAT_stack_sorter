@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 16:27:53 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/01 18:55:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	same_number_checker(t_stack *stack)
 	t_node	*current;
 	t_node	*check;
 
-	current = stack->first_node;
+	current = stack->top_node;
 	while (current)
 	{
 		check = current->next;
@@ -72,7 +72,7 @@ int	is_sorted(t_stack *stack)
 
 	if (stack->num_of_nodes <= 1)
 		return (1);
-	current = stack->first_node;
+	current = stack->top_node;
 	while (current->next)
 	{
 		if (current->number > current->next->number)

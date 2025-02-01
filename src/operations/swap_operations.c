@@ -6,51 +6,45 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:59:20 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 15:59:34 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/01 18:56:14 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// Swap 1st and 2nd elements of Stack A
+// Swap 1st and 2nd elements of a stack
 // ex.) 1 2 3 4 => 2 1 3 4
-void	sa(t_stack *stack_a)
+void	swap(t_stack *stack)
 {
-	t_node	*first;
-	t_node	*second;
+	t_node	*first_node;
+	t_node	*second_node;
 	int		temp;
 
-	if (stack_a->num_of_nodes < 2)
+	if (stack->num_of_nodes < 2)
 		return ;
-	first = stack_a->first_node;
-	second = first->next;
-	temp = first->number;
-	first->number = second->number;
-	second->number = temp;
-	write(1, "sa\n", 3);
+	first_node = stack->top_node;
+	second_node = first_node->next;
+	temp = first_node->number;
+	first_node->number = second_node->number;
+	second_node->number = temp;
 }
 
-// Swap 1st and 2nd elements of Stack B
+void	sa(t_stack *stack_a)
+{
+	swap(stack_a);
+	write(1, "sa used.\n", 10);
+}
+
 void	sb(t_stack *stack_b)
 {
-	t_node	*first;
-	t_node	*second;
-	int		temp;
-
-	if (stack_b->num_of_nodes < 2)
-		return ;
-	first = stack_b->first_node;
-	second = first->next;
-	temp = first->number;
-	first->number = second->number;
-	second->number = temp;
-	write(1, "sb\n", 3);
+	swap(stack_b);
+	write(1, "sb used.\n", 10);
 }
 
 // Swap 1st and 2nd elements of both stacks
 void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
-	write(1, "ss\n", 3);
+	swap(stack_a);
+	swap(stack_b);
+	write(1, "ss used.\n", 10);
 }

@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 16:27:08 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/01 18:55:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*init_stack(void)
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		error_exit();
-	stack->first_node = NULL;
+	stack->top_node = NULL;
 	stack->num_of_nodes = 0;
 	return (stack);
 }
@@ -32,8 +32,8 @@ void	push(t_stack *stack, int number)
 	if (!new)
 		error_exit();
 	new->number = number;
-	new->next = stack->first_node;
-	stack->first_node = new;
+	new->next = stack->top_node;
+	stack->top_node = new;
 	stack->num_of_nodes++;
 }
 
@@ -44,9 +44,9 @@ int	pop(t_stack *stack)
 
 	if (stack->num_of_nodes == 0)
 		error_exit();
-	temp = stack->first_node;
+	temp = stack->top_node;
 	number = temp->number;
-	stack->first_node = temp->next;
+	stack->top_node = temp->next;
 	free(temp);
 	stack->num_of_nodes--;
 	return (number);
@@ -57,7 +57,7 @@ void	clear_stack(t_stack *stack)
 	t_node	*current;
 	t_node	*next;
 
-	current = stack->first_node;
+	current = stack->top_node;
 	while (current)
 	{
 		next = current->next;

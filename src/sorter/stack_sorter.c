@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:25:30 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 22:55:39 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/01 18:55:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ void	sort_three_nums(t_stack *stack_a)
 
 	if (stack_a->num_of_nodes <= 1)
 		return ;
-	first_num = stack_a->first_node->number;
-	second_num = stack_a->first_node->next->number;
+	first_num = stack_a->top_node->number;
+	second_num = stack_a->top_node->next->number;
 	if (stack_a->num_of_nodes == 2)
 	{
 		if (first_num > second_num)
 			sa(stack_a);
 		return ;
 	}
-	third_num = stack_a->first_node->next->next->number;
+	third_num = stack_a->top_node->next->next->number;
 	sort_three_helper(stack_a, first_num, second_num, third_num);
 }
 

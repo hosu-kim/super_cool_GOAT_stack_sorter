@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 22:54:11 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 16:13:58 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/01 18:55:54 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	get_min_num(t_stack *stack)
 	t_node	*current;
 	int		min_num;
 
-	current = stack->first_node;
+	current = stack->top_node;
 	min_num = current->number;
 	while (current)
 	{
@@ -33,7 +33,7 @@ int	get_max_num(t_stack *stack)
 	t_node	*current;
 	int		max;
 
-	current = stack->first_node;
+	current = stack->top_node;
 	max = current->number;
 	while (current)
 	{
@@ -55,10 +55,13 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b)
 		min_num = get_min_num(stack_a);
 		max_num = get_max_num(stack_a);
 		mid_num = (min_num + max_num) / 2;
-		if (stack_a->first_node->number <= mid_num)
+		if (stack_a->top_node->number <= mid_num)
 			pb(stack_a, stack_b);
 		else
+		{
 			ra(stack_a);
+			write(1, "ra used.\n", 3);
+		}
 	}
 	sort_three_nums(stack_a);
 }
