@@ -6,17 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 18:55:54 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/01 22:58:27 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	error_exit(void)
-{
-	write(2, "Error.\n", 8);
-	exit(1);
-}
 
 /// @brief converts a number in a string to integer.
 /// @note Ascii: 9: '\t', 10: '\n', 11: '\v' 12: '\f', 13: '\r
@@ -59,7 +53,10 @@ void	same_number_checker(t_stack *stack)
 		while (check)
 		{
 			if (current->number == check->number)
-				error_exit();
+			{
+				printf("Please don't input the same number.\n");
+				exit(1);
+			}
 			check = check->next;
 		}
 		current = current->next;
