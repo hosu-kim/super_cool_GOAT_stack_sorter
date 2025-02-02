@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/02 21:57:45 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/02 22:23:30 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	print_stack(t_stack *stack_a);
 void	clear_stack(t_stack *stack);
 // utils.c
 int		ft_atoi(const char *str);
+void	ft_putnbr(int n);
 void	same_number_checker(t_stack *stack);
 int		is_sorted(t_stack *stack);
 

@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 22:58:27 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/02 22:22:46 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,30 @@ int	ft_atoi(const char *str)
 	if (*str != '\0')
 		error_exit();
 	return (sign * result);
+}
+
+static void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int n)
+{
+	long	num;
+
+	num = n;
+	if (num < 0)	
+	{
+		ft_putchar('-');
+		num = -num;
+	}
+	if (num >= 10)
+	{
+		ft_putnbr(num / 10);
+		ft_putnbr(num % 10);
+	}
+	else
+		ft_putchar(num + '0');
 }
 
 void	same_number_checker(t_stack *stack)
