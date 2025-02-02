@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 18:55:54 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/02 21:59:47 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ t_stack	*init_stack(void)
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
-		error_exit();
+	{
+		perror("Error: Memory allocation failed in init_stack().\n");
+		exit(1);
+	}
 	stack->top_node = NULL;
 	stack->num_of_nodes = 0;
 	return (stack);
@@ -30,7 +33,10 @@ void	push(t_stack *stack, int number)
 
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
-		error_exit();
+	{
+		perror("Error: Memory allocation failed in push().\n");
+		exit(1);
+	}
 	new->number = number;
 	new->next = stack->top_node;
 	stack->top_node = new;
@@ -50,6 +56,22 @@ int	pop(t_stack *stack)
 	free(temp);
 	stack->num_of_nodes--;
 	return (number);
+}
+
+void	print_stack(t_stack *stack_a)
+{
+	t_node	*current_node;
+
+	printf("The numbers ar sorted in ascending order:\n");
+	current_node = stack_a->top_node;
+	while (current_node)
+	{
+		printf("%d", current_node->number);
+		if (current_node->next)
+			printf(" ");
+		current_node = current_node->next;
+	}
+	printf("\n");
 }
 
 void	clear_stack(t_stack *stack)

@@ -6,13 +6,13 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:25:30 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 18:55:54 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/02 21:56:52 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_three_helper(t_stack *stack_a, int first, int second, int third)
+static void	sort_three_help(t_stack *stack_a, int first, int second, int third)
 {
 	if (first > second && second > third)
 	{
@@ -49,7 +49,7 @@ void	sort_three_nums(t_stack *stack_a)
 		return ;
 	}
 	third_num = stack_a->top_node->next->next->number;
-	sort_three_helper(stack_a, first_num, second_num, third_num);
+	sort_three_help(stack_a, first_num, second_num, third_num);
 }
 
 void	sort_stack(t_stack *stack_a, t_stack *stack_b)

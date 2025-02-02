@@ -6,12 +6,12 @@
 #    By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/26 22:12:47 by hoskim            #+#    #+#              #
-#    Updated: 2025/02/01 15:56:16 by hoskim           ###   ########.fr        #
+#    Updated: 2025/02/02 19:43:52 by hoskim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I./includes
 

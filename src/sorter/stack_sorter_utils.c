@@ -6,13 +6,13 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 22:54:11 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 18:55:54 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/02 21:45:28 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	get_min_num(t_stack *stack)
+static int	get_min_num(t_stack *stack)
 {
 	t_node	*current;
 	int		min_num;
@@ -28,7 +28,7 @@ int	get_min_num(t_stack *stack)
 	return (min_num);
 }
 
-int	get_max_num(t_stack *stack)
+static int	get_max_num(t_stack *stack)
 {
 	t_node	*current;
 	int		max;

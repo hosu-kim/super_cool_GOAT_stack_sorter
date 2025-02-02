@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:24 by hoskim            #+#    #+#             */
-/*   Updated: 2025/01/31 19:50:57 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/02 21:51:52 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	same_number_checker(stack_a);
 	if (!is_sorted(stack_a))
 		sort_stack(stack_a, stack_b);
+	print_stack(stack_a);
 	clear_stack(stack_a);
 	clear_stack(stack_b);
 	return (0);
