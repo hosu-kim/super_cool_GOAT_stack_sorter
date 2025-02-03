@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:25:30 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/03 00:43:52 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/03 20:42:06 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b)
 	{
 		best_num = find_best_number_from_b(stack_a, stack_b);
 		target_position = find_insert_position(stack_a, best_num);
-		while (stack_b->)
+		while (stack_b)
 	}
 }
 
