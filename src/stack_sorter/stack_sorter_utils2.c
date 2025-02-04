@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:03:31 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/04 19:07:16 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/04 21:50:45 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	get_min(t_stack *stack)
 {

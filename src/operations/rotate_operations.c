@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:48:19 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/01 19:04:03 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/04 21:49:34 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	rotate(t_stack *stack)
 	stack->top_node = first_node->next;
 	first_node->next = NULL;
 	last_node->next = first_node;
-	write(1, "rb used.\n", 10);
 }
 
 void	ra(t_stack *stack_a)

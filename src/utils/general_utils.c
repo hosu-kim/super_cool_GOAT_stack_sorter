@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/04 19:24:22 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/04 21:42:25 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_putnbr(int n)
 	long	num;
 
 	num = n;
-	if (num < 0)	
+	if (num < 0)
 	{
 		ft_putchar('-');
 		num = -num;

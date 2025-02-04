@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/02 22:19:01 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/04 22:38:03 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	print_stack(t_stack *stack_a)
 {
 	t_node	*current_node;
 
-	write(1, "The numbers ar sorted in ascending order:\n", 42);
+	write(1, "\nThe provided numbers are sorted in ascending order:\n", 52);
 	current_node = stack_a->top_node;
 	while (current_node)
 	{

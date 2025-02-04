@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:38:19 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/04 19:19:36 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/04 22:36:13 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ static void	move_to_b(t_stack *stack_a, t_stack *stack_b)
 	sort_three_nums(stack_a);
 }
 
-static void	move_best_number(t_stack *stack_a, t_stack *stack_b,
-							int best_num, int target_positon)
+static void	move_best_number(t_stack *stack_a, t_stack *stack_b, int best_num)
 {
+	int	current_position;
+
 	while (stack_b->top_node->number != best_num)
 	{
 		if (get_position(stack_b, best_num) <= stack_b->num_of_nodes / 2)
@@ -43,7 +44,9 @@ static void	move_best_number(t_stack *stack_a, t_stack *stack_b,
 	}
 	while (find_insert_position(stack_a, stack_b->top_node->number) != 0)
 	{
-		if (target_positon <= stack_a->num_of_nodes / 2)
+		current_position = find_insert_position(stack_a, \
+												stack_b->top_node->number);
+		if (current_position <= stack_a->num_of_nodes / 2)
 			ra(stack_a);
 		else
 			rra(stack_a);
@@ -68,14 +71,12 @@ static void	align_stack(t_stack *stack_a)
 void	sort_big(t_stack *stack_a, t_stack *stack_b)
 {
 	int	best_num;
-	int	target_position;
 
 	move_to_b(stack_a, stack_b);
 	while (stack_b->num_of_nodes > 0)
 	{
 		best_num = find_best_number_from_b(stack_a, stack_b);
-		target_position = find_insert_position(stack_a, best_num);
-		move_best_number(stack_a, stack_b, best_num, target_position);
+		move_best_number(stack_a, stack_b, best_num);
 	}
 	align_stack(stack_a);
 }
