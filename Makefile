@@ -6,7 +6,7 @@
 #    By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/26 22:12:47 by hoskim            #+#    #+#              #
-#    Updated: 2025/02/02 19:43:52 by hoskim           ###   ########.fr        #
+#    Updated: 2025/02/04 19:38:29 by hoskim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ INCLUDES = -I./includes
 SRCS_DIR = src
 MAIN_DIR = $(SRCS_DIR)/main
 OPS_DIR = $(SRCS_DIR)/operations
-SORTER_DIR = $(SRCS_DIR)/sorter
+SORTER_DIR = $(SRCS_DIR)/stack_sorter
 STACK_MANAGER_DIR = $(SRCS_DIR)/stack_manager
 UTILS_DIR = $(SRCS_DIR)/utils
 
@@ -28,9 +28,12 @@ SRCS = $(MAIN_DIR)/push_swap.c \
 		$(OPS_DIR)/rotate_operations.c \
 		$(OPS_DIR)/swap_operations.c \
 		$(SORTER_DIR)/stack_sorter_utils.c \
+		$(SORTER_DIR)/stack_sorter_utils2.c \
 		$(SORTER_DIR)/stack_sorter.c \
+		$(SORTER_DIR)/stack_sorter_big.c \
 		$(STACK_MANAGER_DIR)/stack_manager.c \
-		$(UTILS_DIR)/general_utils.c
+		$(UTILS_DIR)/general_utils.c \
+		$(UTILS_DIR)/general_utils2.c
 
 OBJS = $(SRCS:.c=.o)
 

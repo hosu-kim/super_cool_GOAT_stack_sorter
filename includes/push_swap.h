@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/04 19:20:31 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:39:34 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,11 @@ void	push(t_stack *stack, int number);
 int		pop(t_stack *stack); // used in push_operations.c
 void	print_stack(t_stack *stack_a);
 void	clear_stack(t_stack *stack);
-// utils.c
+// general_utils.c
+void	error_exit(void);
 int		ft_atoi(const char *str);
 void	ft_putnbr(int n);
+//general_utils2.c
 void	same_number_checker(t_stack *stack);
 int		is_sorted(t_stack *stack);
 
