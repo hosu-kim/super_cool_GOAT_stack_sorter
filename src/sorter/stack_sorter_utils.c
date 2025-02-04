@@ -5,63 +5,85 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 22:54:11 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/03 00:31:53 by hoskim           ###   ########.fr       */
+/*   Created: 2025/02/04 18:44:33 by hoskim            #+#    #+#             */
+/*   Updated: 2025/02/04 19:02:50 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-static int	get_min_num(t_stack *stack)
+int	get_position(t_stack *stack, int num)
 {
-	t_node	*current;
-	int		min_num;
+	int		position;
+	t_node	*current_node;
 
-	current = stack->top_node;
-	min_num = current->number;
-	while (current)
+	position = 0;
+	current_node = stack->top_node;
+	while (current_node && current_node->number != num)
 	{
-		if (current->number < min_num)
-			min_num = current->number;
-		current = current->next;
+		position++;
+		current_node = current_node->next;
 	}
-	return (min_num);
+	return (position);
 }
 
-static int	get_max_num(t_stack *stack)
+int	find_best_number_from_b(t_stack *stack_a, t_stack *stack_b)
 {
-	t_node	*current;
-	int		max;
+	int		best_num;
+	int		min_operations;
+	int		operations;
+	t_node	*current_node;
 
-	current = stack->top_node;
-	max = current->number;
-	while (current)
+	best_num = stack_b->top_node->number;
+	min_operations = INT_MAX;
+	current_node = stack_b->top_node;
+	while (current_node)
 	{
-		if (current->number > max)
-			max = current->number;
-		current = current->next;
-	}
-	return (max);
-}
-
-void	sort_big(t_stack *stack_a, t_stack *stack_b)
-{
-	int	min_num;
-	int	max_num;
-	int	mid_num;
-
-	while (stack_a->num_of_nodes > 3)
-	{
-		min_num = get_min_num(stack_a);
-		max_num = get_max_num(stack_a);
-		mid_num = (min_num + max_num) / 2;
-		if (stack_a->top_node->number <= mid_num)
-			pb(stack_a, stack_b);
-		else
+		operations = calculate_operations(stack_a, stack_b, \
+						current_node->number);
+		if (operations < min_operations)
 		{
-			ra(stack_a);
-			write(1, "ra used.\n", 3);
+			min_operations = operations;
+			best_num = current_node->number;
 		}
+		current_node = current_node->next;
 	}
-	sort_three_nums(stack_a);
+	return (best_num);
+}
+
+int	find_insert_position(t_stack *stack_a, int num)
+{
+	int		position;
+	t_node	*current_node;
+
+	position = 0;
+	current_node = stack_a->top_node;
+	while (current_node && current_node->next)
+	{
+		if (num > current_node->number && num < current_node->next->number)
+			return (position + 1);
+		position++;
+		current_node = current_node->next;
+	}
+	return (position);
+}
+
+int	calculate_operations(t_stack *stack_a, t_stack *stack_b, int num)
+{
+	int	position_in_b;
+	int	target_position_in_a;
+	int	operations;
+
+	position_in_b = get_position(stack_b, num);
+	target_position_in_a = find_insert_position(stack_a, num);
+	operations = 0;
+	if (position_in_b <= stack_b->num_of_nodes / 2)
+		operations += position_in_b;
+	else
+		operations += stack_b->num_of_nodes - position_in_b;
+	if (target_position_in_a <= stack_a->num_of_nodes / 2)
+		operations += target_position_in_a;
+	else
+		operations += stack_a->num_of_nodes - target_position_in_a;
+	return (operations + 1);
 }

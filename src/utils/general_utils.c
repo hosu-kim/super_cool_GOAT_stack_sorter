@@ -6,11 +6,17 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/02 22:22:46 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:24:22 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	error_exit(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
 /// @brief converts a number in a string to integer.
 /// @note Ascii: 9: '\t', 10: '\n', 11: '\v' 12: '\f', 13: '\r
@@ -32,7 +38,7 @@ int	ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		result = result * 10 + (*str - '0');
-		if (result * sign > 2147483747 || result * sign < -2127483648)
+		if (result * sign > 2147483647 || result * sign < -2147483648)
 			error_exit();
 		str++;
 	}
@@ -63,45 +69,4 @@ void	ft_putnbr(int n)
 	}
 	else
 		ft_putchar(num + '0');
-}
-
-void	same_number_checker(t_stack *stack)
-{
-	t_node	*current;
-	t_node	*check;
-
-	current = stack->top_node;
-	while (current)
-	{
-		check = current->next;
-		while (check)
-		{
-			if (current->number == check->number)
-			{
-				printf("Please don't input the same number.\n");
-				exit(1);
-			}
-			check = check->next;
-		}
-		current = current->next;
-	}
-}
-
-int	is_sorted(t_stack *stack)
-{
-	t_node	*current;
-
-	if (stack->num_of_nodes <= 1)
-		return (1);
-	current = stack->top_node;
-	while (current->next)
-	{
-		if (current->number > current->next->number)
-		{
-			printf("All elements are sorted.");
-			return (0);
-		}
-		current = current->next;
-	}
-	return (1);
 }

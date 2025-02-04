@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/02 22:23:30 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:20:31 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <limits.h> // INT_MAX
 
 // Structure for a single node in a linked list.
 typedef struct s_node
@@ -53,8 +54,16 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 // stack_sorter.c
 void	sort_three_nums(t_stack *stack_a);
 void	sort_stack(t_stack *stack_a, t_stack *stack_b);
-// stack_sorter_utils.c
+// stack_sorter_big.c
 void	sort_big(t_stack *stack_a, t_stack *stack_b);
+// stack_sorter_utils.c
+int		get_position(t_stack *stack, int num);
+int		find_best_number_from_b(t_stack *stack_a, t_stack *stack_b);
+int		find_insert_position(t_stack *stack_a, int num);
+int		calculate_operations(t_stack *stack_a, t_stack *stack_b, int num);
+// stack_sorter_utils2.c
+int		get_min(t_stack *stack);
+int		get_max(t_stack *stack);
 // stack_manager.c
 t_stack	*init_stack(void);
 void	push(t_stack *stack, int number);
