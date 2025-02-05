@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/04 19:39:34 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/05 18:51:19 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_stack
 {
 	t_node	*top_node;
 	int		num_of_nodes;
+	int		rotations;
 }	t_stack;
 
 // operations_swap.c
