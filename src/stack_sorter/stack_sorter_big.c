@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:38:19 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/05 22:48:50 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/05 23:07:07 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static void	move_to_b(t_stack *stack_a, t_stack *stack_b)
 
 static void	move_best_number(t_stack *stack_a, t_stack *stack_b, int best_num)
 {
-	int	current_position;
-	
+	int	target_position;
+
 	while (stack_b->top_node->number != best_num)
 	{
 		if (get_position(stack_b, best_num) <= stack_b->num_of_nodes / 2)
@@ -51,5 +51,16 @@ static void	move_best_number(t_stack *stack_a, t_stack *stack_b, int best_num)
 		else
 			rrb(stack_b);
 	}
-	while (find_)
+	target_position = find_insert_position(stack_a, best_num);
+	while (target_position > 0)
+	{
+		if (target_position <= stack_a->num_of_nodes / 2)
+			ra(stack_a);
+		else
+			rra(stack_a);
+		target_position = find_insert_position(stack_a, best_num);
+	}
+	pa(stack_a, stack_a);
 }
+
+void	sort_bit(t_stack *stack_a, t_stack )
