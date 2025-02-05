@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:38:19 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/05 18:57:21 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/05 19:39:58 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,21 @@ static void	move_to_b(t_stack *stack_a, t_stack *stack_b)
 	{
 		min_num = get_min(stack_a);
 		max_num = get_max(stack_a);
-		mid_num = (min_num + max_num) / 2;
+		mid_num = min_num + ((max_num - min_num) / 2);
 		pushed_count = 0;
 		total_to_push = stack_a->num_of_nodes - 3;
-
 		while (pushed_count < total_to_push && stack_a->num_of_nodes > 3)
 		{
 			if (stack_a->top_node->number <= mid_num)
 			{
-				pb(stack_a, stack_b);
+				pb(stack_a, stack_a);
 				pushed_count++;
 			}
 			else
-				ra(stack_a);
-			if (pushed_count == 0 \
-				&& stack_a->rotations >= stack_a->num_of_nodes)
 			{
-				mid_num = stack_a->top_node->number;
-				stack_a->rotations = 0;
+				ra(stack_a);
 			}
-		}
 	}
-	sort_three_nums(stack_a);
 }
 
 static void	move_best_number(t_stack *stack_a, t_stack *stack_b, int best_num)
