@@ -6,44 +6,42 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:24:36 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/04 19:24:51 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/06 21:06:53 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	same_number_checker(t_stack *stack)
-{
-	t_node	*current;
-	t_node	*check;
+#include "push_swap.h"
 
-	current = stack->top_node;
-	while (current)
+void same_number_checker(t_stack *stack)
+{
+	t_node *outer;
+	t_node *inner;
+
+	outer = stack->top_node;
+	while (outer)
 	{
-		check = current->next;
-		while (check)
+		inner = outer->next;
+		while (inner)
 		{
-			if (current->number == check->number)
+			if (outer->number == inner->number)
 				error_exit();
-			check = check->next;
+			inner = inner->next;
 		}
-		current = current->next;
+		outer = outer->next;
 	}
 }
 
-int	is_sorted(t_stack *stack)
+int is_sorted(t_stack *stack)
 {
-	t_node	*current;
+	t_node *current;
 
-	if (stack->num_of_nodes <= 1)
-		return (1);
 	current = stack->top_node;
-	while (current->next)
+	while (current && current->next)
 	{
 		if (current->number > current->next->number)
-		{
 			return (0);
-		}
 		current = current->next;
 	}
 	return (1);

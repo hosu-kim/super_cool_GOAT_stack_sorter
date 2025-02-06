@@ -5,62 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 18:38:19 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/05 23:07:07 by hoskim           ###   ########.fr       */
+/*   Created: 2025/02/06 20:44:40 by hoskim            #+#    #+#             */
+/*   Updated: 2025/02/06 21:05:32 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void	move_to_b(t_stack *stack_a, t_stack *stack_b)
-{
-	int	min_num;
-	int	max_num;
-	int	mid_num;
-	int	pushed_count;
-	int	total_to_push;
+#include "push_swap.h"
 
-	while (stack_a->num_of_nodes > 3)
+void sort_big(t_stack *stack_a, t_stack *stack_b)
+{
+	int pivot;
+	int stack_size_total;
+
+	stack_size_total = stack_a->num_of_nodes;
+	while (stack_size_total > 3)
 	{
-		min_num = get_min(stack_a);
-		max_num = get_max(stack_a);
-		mid_num = min_num + ((max_num - min_num) / 2);
-		pushed_count = 0;
-		total_to_push = stack_a->num_of_nodes - 3;
-		while (pushed_count < total_to_push && stack_a->num_of_nodes > 3)
-		{
-			if (stack_a->top_node->number <= mid_num)
-			{
-				pb(stack_a, stack_b);
-				pushed_count++;
-			}
-			else
-				ra(stack_a);
-		}
+		pivot = find_pivot(stack_a);
+		partition_stack(stack_a, stack_b, pivot);
+		stack_size_total = stack_a->num_of_nodes;
 	}
+	sort_three_nums(stack_a);
+	while (stack_b->num_of_nodes > 0)
+	{
+		int best_num;
+		
+		best_num = find_best_number_from_b(stack_a, stack_b);
+		move_number_to_a(stack_a, stack_b, best_num);
+	}
+	final_sort(stack_a);
 }
 
-static void	move_best_number(t_stack *stack_a, t_stack *stack_b, int best_num)
+void partition_stack(t_stack *stack_a, t_stack *stack_b, int pivot)
 {
-	int	target_position;
+	int size;
 
-	while (stack_b->top_node->number != best_num)
+	size = stack_a->num_of_nodes;
+	while (size--)
 	{
-		if (get_position(stack_b, best_num) <= stack_b->num_of_nodes / 2)
-			rb(stack_b);
+		if (stack_a->top_node->number <= pivot)
+			pb(stack_a, stack_b);
 		else
-			rrb(stack_b);
-	}
-	target_position = find_insert_position(stack_a, best_num);
-	while (target_position > 0)
-	{
-		if (target_position <= stack_a->num_of_nodes / 2)
 			ra(stack_a);
-		else
-			rra(stack_a);
-		target_position = find_insert_position(stack_a, best_num);
 	}
-	pa(stack_a, stack_a);
 }
-
-void	sort_bit(t_stack *stack_a, t_stack )

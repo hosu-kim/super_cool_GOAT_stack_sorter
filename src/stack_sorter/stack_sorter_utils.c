@@ -6,94 +6,77 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:44:33 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/05 16:06:39 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/06 21:05:57 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	get_position(t_stack *stack, int num)
-{
-	int		position;
-	t_node	*current_node;
+#include "push_swap.h"
 
+int get_position(t_stack *stack, int num)
+{
+	t_node *current;
+	int position;
+
+	current = stack->top_node;
 	position = 0;
-	current_node = stack->top_node;
-	while (current_node && current_node->number != num)
+	while (current)
 	{
+		if (current->number == num)
+			return (position);
+		current = current->next;
 		position++;
-		current_node = current_node->next;
 	}
-	return (position);
+	return (-1);
 }
 
-int	find_best_number_from_b(t_stack *stack_a, t_stack *stack_b)
+int find_best_number_from_b(t_stack *stack_a, t_stack *stack_b)
 {
-	int		best_num;
-	int		min_operations;
-	int		operations;
-	t_node	*current_node;
+	t_node *current;
+	int best_num;
+	int min_ops;
+	int ops;
 
-	best_num = stack_b->top_node->number;
-	min_operations = INT_MAX;
-	current_node = stack_b->top_node;
-	while (current_node)
+	current = stack_b->top_node;
+	best_num = current->number;
+	min_ops = calculate_operations(stack_a, stack_b, best_num);
+	while (current)
 	{
-		operations = calculate_operations(stack_a, stack_b, \
-						current_node->number);
-		if (operations < min_operations)
+		ops = calculate_operations(stack_a, stack_b, current->number);
+		if (ops < min_ops)
 		{
-			min_operations = operations;
-			best_num = current_node->number;
+			min_ops = ops;
+			best_num = current->number;
 		}
-		current_node = current_node->next;
+		current = current->next;
 	}
 	return (best_num);
 }
 
-int	find_insert_position(t_stack *stack_a, int num)
+int find_insert_position(t_stack *stack_a, int num)
 {
-	int		position;
-	t_node	*current_node;
-	int		min_num;
-	int		max_num;
+	t_node *current;
+	int position;
 
-	if (!stack_a->top_node)
-		return (0);
-	min_num = get_min(stack_a);
-	max_num = get_max(stack_a);
-	if (num < min_num)
-		return (get_position(stack_a, min_num));
-	if (num > max_num)
-		return ((get_position(stack_a, max_num) + 1) % stack_a->num_of_nodes);
+	current = stack_a->top_node;
 	position = 0;
-	current_node = stack_a->top_node;
-	while (current_node && current_node->next)
+	while (current)
 	{
-		if (num > current_node->number && num < current_node->next->number)
-			return (position + 1);
+		if (num < current->number)
+			return (position);
+		current = current->next;
 		position++;
-		current_node = current_node->next;
 	}
-	return (0);
+	return (position);
 }
 
-int	calculate_operations(t_stack *stack_a, t_stack *stack_b, int num)
+int calculate_operations(t_stack *stack_a, t_stack *stack_b, int num)
 {
-	int	position_in_b;
-	int	target_position_in_a;
-	int	operations;
+	int pos_a;
+	int pos_b;
 
-	position_in_b = get_position(stack_b, num);
-	target_position_in_a = find_insert_position(stack_a, num);
-	operations = 0;
-	if (position_in_b <= stack_b->num_of_nodes / 2)
-		operations += position_in_b;
-	else
-		operations += stack_b->num_of_nodes - position_in_b;
-	if (target_position_in_a <= stack_a->num_of_nodes / 2)
-		operations += target_position_in_a;
-	else
-		operations += stack_a->num_of_nodes - target_position_in_a;
-	return (operations + 1);
+	pos_a = find_insert_position(stack_a, num);
+	pos_b = get_position(stack_b, num);
+	return (pos_a + pos_b);
 }
