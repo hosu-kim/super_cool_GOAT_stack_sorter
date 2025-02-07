@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:53:53 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/07 22:10:59 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/07 22:41:17 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	partition_stack(t_stack *stack_a, t_stack *stack_b, int pivot)
 	while (size--)
 	{
 		if (stack_a->top_node->number <= pivot)
-			pb(stack_a, stack_a);
+			pb(stack_a, stack_b);
 		else
 			ra(stack_a);
 	}

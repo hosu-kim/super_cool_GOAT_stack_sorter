@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/07 22:35:59 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/07 22:44:41 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,13 @@ void	sort_stack(t_stack *stack_a, t_stack *stack_b);
 // stack_sorter_big.c
 void	sort_big(t_stack *stack_a, t_stack *stack_b);
 void	partition_stack(t_stack *stack_a, t_stack *stack_b, int pivot);
+//stack_sorter_final.c
+void	final_sort(t_stack *stack_a);
 // stack_sorter_utils.c
 int		get_position(t_stack *stack, int num);
 int		find_best_number_from_b(t_stack *stack_a, t_stack *stack_b);
 int		find_insert_position(t_stack *stack_a, int num);
 int		calculate_operations(t_stack *stack_a, t_stack *stack_b, int num);
-
 // stack_sorter_utils2.c
 int		get_min(t_stack *stack);
 int		get_max(t_stack *stack);
