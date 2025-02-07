@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/05 18:44:47 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/07 02:52:20 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,36 @@ void	print_stack(t_stack *stack_a)
 	write(1, "\n\n", 2);
 }
 
-void	clear_stack(t_stack *stack)
+/**
+ * @brief Safely clears and frees memory for two stacks
+ * 
+ * @note This function performs the following steps:
+ * -# Checks for NULL pointers
+ * -# Frees all nodes in each stack
+ * -# Frees the stack structures themselves
+ */
+void	clear_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*current;
 	t_node	*next;
 
-	current = stack->top_node;
+	if (!stack_a || !stack_b)
+		return ;
+
+	current = stack_a->top_node;
 	while (current)
 	{
 		next = current->next;
 		free(current);
 		current = next;
 	}
-	free(stack);
+	current = stack_b->top_node;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	free(stack_a);
+	free(stack_b);
 }

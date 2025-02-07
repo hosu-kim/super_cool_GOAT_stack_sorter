@@ -6,12 +6,29 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:24 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/02 21:51:52 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/07 02:52:38 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/**
+ * @brief Main function of push_swap program
+ * 
+ * This program sorts a stack of integers using two stacks (A and B) and
+ * a limited set of operations. The program takes integers as arguments,
+ * stores them in stack A, and sorts them using various stack operations.
+ * 
+ * @ note Algorithm steps:
+ * -# Initialize both stacks A and B
+ * -# Push input numbers to stack A in reverse order
+ * -# Check for duplicate numbers
+ * -# Sort the stack if not already sorted
+ * -# Clean up allocated memory
+ * 
+ * @warning All input numbers must be valid integers
+ * @warning No duplicate numbers are allowed
+ */
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -32,8 +49,7 @@ int	main(int argc, char **argv)
 	if (!is_sorted(stack_a))
 		sort_stack(stack_a, stack_b);
 	print_stack(stack_a);
-	clear_stack(stack_a);
-	clear_stack(stack_b);
+	clear_stacks(stack_a, stack_b);
 	return (0);
 }
 /* @note 
@@ -44,5 +60,5 @@ int	main(int argc, char **argv)
 		4. same_number_checker() | utils.c
 		5. is_sorted()			 | utils.c
 		6. sort_stack()-CORE	 | stack_sorter.c
-		7. clear_stack()		 | stackmanager.c
+		7. clear_stacks()		 | stackmanager.c
 */

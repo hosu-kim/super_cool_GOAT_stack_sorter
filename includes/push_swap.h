@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/05 19:36:45 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/07 02:53:10 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,17 @@ int		get_position(t_stack *stack, int num);
 int		find_best_number_from_b(t_stack *stack_a, t_stack *stack_b);
 int		find_insert_position(t_stack *stack_a, int num);
 int		calculate_operations(t_stack *stack_a, t_stack *stack_b, int num);
+
 // stack_sorter_utils2.c
 int		get_min(t_stack *stack);
 int		get_max(t_stack *stack);
+
 // stack_manager.c
 t_stack	*init_stack(void);
 void	push(t_stack *stack, int number);
 int		pop(t_stack *stack); // used in push_operations.c
 void	print_stack(t_stack *stack_a);
-void	clear_stack(t_stack *stack);
+void	clear_stacks(t_stack *stack_a, t_stack *stack_b);
 // general_utils.c
 void	error_exit(void);
 int		ft_atoi(const char *str);
