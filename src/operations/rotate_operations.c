@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:48:19 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/05 18:58:39 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/07 19:49:31 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	rotate(t_stack *stack)
 void	ra(t_stack *stack_a)
 {
 	rotate(stack_a);
-	stack_a->rotations++;
 	write(1, "ra used.\n", 10);
 }
 

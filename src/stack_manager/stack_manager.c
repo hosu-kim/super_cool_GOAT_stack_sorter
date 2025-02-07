@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/07 02:52:20 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/07 21:39:20 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	clear_stacks(t_stack *stack_a, t_stack *stack_b)
 
 	if (!stack_a || !stack_b)
 		return ;
-
 	current = stack_a->top_node;
 	while (current)
 	{
