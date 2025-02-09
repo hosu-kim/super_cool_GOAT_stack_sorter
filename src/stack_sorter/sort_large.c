@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/09 05:00:58 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/09 22:37:39 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,22 @@ static int	get_optimal_moves(int position, int stack_size)
 	return (stack_size - position + 1);
 }
 
+static void	handle_stack_rotation(t_stack *stack_a, int position)
+{
+	if (position <= stack_a->num_of_nodes / 2)
+		ra(stack_a);
+	else
+		rra(stack_a);
+}
+
 static void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b, t_range chunk)
 {
 	int	target;
 	int	position;
+	int	rotation_count;
 
-	while (stack_a->num_of_nodes > 0)
+	rotation_count = 0;
+	while (stack_a->num_of_nodes > 0 && rotation_count < stack_a->num_of_nodes)
 	{
 		target = stack_a->top_node->number;
 		if (target >= chunk.min && target <= chunk.max)
@@ -32,14 +42,15 @@ static void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b, t_range chunk)
 			pb(stack_a, stack_b);
 			if (stack_b->top_node->number < (chunk.min + chunk.max) / 2)
 				rb(stack_b);
+			rotation_count = 0;
 		}
 		else
 		{
 			position = get_target_position(stack_a, chunk.min);
-			if (position <= stack_a->num_of_nodes / 2)
-				ra(stack_a);
-			else
-				rra(stack_a);
+			if (position > stack_a->num_of_nodes)
+				position = stack_a->num_of_nodes;
+			handle_stack_rotation(stack_a, position);
+			rotation_count++;
 		}
 	}
 }
