@@ -6,7 +6,7 @@
 #    By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/26 22:12:47 by hoskim            #+#    #+#              #
-#    Updated: 2025/02/04 19:38:29 by hoskim           ###   ########.fr        #
+#    Updated: 2025/02/09 04:31:53 by hoskim           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,11 @@ SRCS = $(MAIN_DIR)/push_swap.c \
 		$(OPS_DIR)/reverse_operations.c \
 		$(OPS_DIR)/rotate_operations.c \
 		$(OPS_DIR)/swap_operations.c \
-		$(SORTER_DIR)/stack_sorter_utils.c \
-		$(SORTER_DIR)/stack_sorter_utils2.c \
-		$(SORTER_DIR)/stack_sorter.c \
-		$(SORTER_DIR)/stack_sorter_big.c \
 		$(STACK_MANAGER_DIR)/stack_manager.c \
+		$(SORTER_DIR)/sort_large.c \
+		$(SORTER_DIR)/sort_manager.c \
+		$(SORTER_DIR)/sort_small.c \
+		$(SORTER_DIR)/sort_utils.c \
 		$(UTILS_DIR)/general_utils.c \
 		$(UTILS_DIR)/general_utils2.c
 

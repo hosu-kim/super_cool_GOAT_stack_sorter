@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/09 03:08:06 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/09 04:33:42 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,28 @@ void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 // stack_manager.c
+t_stack	*init_stack(void);
+void	push(t_stack *stack, int number);
+int		pop(t_stack *stack);
+void	print_stack(t_stack *stack_a);
+void	clear_stacks(t_stack *stack_a, t_stack *stack_b);
+
+// sort_large.c
+void	sort_large(t_stack *stack_a, t_stack *stack_b);
+
+// sort_manager.c
+void	sort_stacks(t_stack *stack_a, t_stack *stack_b);
+
+// sort_small.c
+void	sort_two(t_stack *stack_a);
+void	sort_three(t_stack *stack_a);
+void	sort_small(t_stack *stack_a, t_stack *stack_b);
+
+// sort_utils.c
 t_range	get_stack_range(t_stack *stack);
+int		find_min_position(t_stack *stack);
+int		find_max_position(t_stack *stack);
+int		get_target_position(t_stack *stack, int target_num);
 
 // general_utils.c
 void	error_exit(void);
