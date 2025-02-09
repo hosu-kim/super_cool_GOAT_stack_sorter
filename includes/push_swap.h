@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/08 00:07:28 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/09 02:16:38 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ typedef struct s_stack
 	int		num_of_nodes;
 }	t_stack;
 
+typedef struct s_range
+{
+	int	min;
+	int	max;
+}	t_range;
+
 // operations_swap.c
 // Push the top_node element of one stack to another.
 void	pa(t_stack *stack_a, t_stack *stack_b);
@@ -51,13 +57,13 @@ void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
-
 // stack_manager.c
 t_stack	*init_stack(void);
 void	push(t_stack *stack, int number);
 int		pop(t_stack *stack); // used in push_operations.c
 void	print_stack(t_stack *stack_a);
 void	clear_stacks(t_stack *stack_a, t_stack *stack_b);
+
 // general_utils.c
 void	error_exit(void);
 int		ft_atoi(const char *str);

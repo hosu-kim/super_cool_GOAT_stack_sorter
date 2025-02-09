@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small_1.c                                     :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 00:14:07 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/08 20:34:43 by hoskim           ###   ########.fr       */
+/*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
+/*   Updated: 2025/02/09 01:53:07 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void	sort_two(t_stack *stack_a)
+// ex. stack_a = {2, 1}
+void	sort_two(t_stack *stack_a)
 {
 	if (stack_a->top_node->number > stack_a->top_node->next->number)
 		sa(stack_a);
 }
 
-static void	sort_three(t_stack *stack_a)
+/* ex.
+	case 1. stack_a = {2, 1, 3}
+	case 2. stack_a = {3, 2, 1}
+	case 3. stack_a = {1, 3, 2}
+	case 4. stack_a = {2, 3, 1}
+	case 5. stack_a = {1, 3, 2}
+*/
+void	sort_three(t_stack *stack_a)
 {
 	int	first;
 	int	second;
@@ -43,4 +51,26 @@ static void	sort_three(t_stack *stack_a)
 	}
 	else if (first < second && second > third && first > third)
 		rra(stack_a);
+}
+
+void	sort_small(t_stack *stack_a, t_stack *stack_b)
+{
+	int	target_position;
+
+	while (stack_a->num_of_nodes > 3)
+	{
+		target_position = find_min_position(stack_a);
+		while (target_position != 1)
+		{
+			if (target_position <= stack_a->num_of_nodes / 2)
+				ra(stack_a);
+			else
+				rra(stack_a);
+			target_position = find_min_position(stack_a);
+		}
+		pb(stack_a, stack_b);
+	}
+	sort_three(stack_a);
+	while (stack_b->num_of_nodes > 0)
+		pa(stack_a, stack_b);
 }
