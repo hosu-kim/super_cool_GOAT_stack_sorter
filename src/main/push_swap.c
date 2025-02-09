@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:24 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/08 00:03:14 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/09 03:36:19 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int	main(int argc, char **argv)
 	if (!is_sorted(stack_a))
 		sort_stack(stack_a, stack_b);
 	print_stack(stack_a);
-	clear_stacks(stack_a, stack_b);	return (0);
+	clear_stacks(stack_a, stack_b);
+	return (0);
 }
 /* @note 
 	- function usage
