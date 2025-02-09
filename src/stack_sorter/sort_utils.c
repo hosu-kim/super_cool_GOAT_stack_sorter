@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:30:03 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/09 02:46:05 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/09 02:55:09 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_range	get_stack_range(t_stack *stack)
 	}
 	return (range);
 }
+
 int	find_min_position(t_stack *stack)
 {
 	t_node	*current_node;
@@ -86,4 +87,21 @@ int	find_max_position(t_stack *stack)
 		position++;
 	}
 	return (max_position);
+}
+
+int	get_target_position(t_stack *stack, int target_num)
+{
+	t_node	*current_node;
+	int		position;
+
+	if (!stack || !stack->top_node)
+		return (0);
+	current_node = stack->top_node;
+	position = 1;
+	while (current_node && current_node->number != target_num)
+	{
+		current_node = current_node->next;
+		position++;
+	}
+	return (position);
 }

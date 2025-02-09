@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/09 02:29:32 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/09 03:13:08 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,20 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b)
 	int		i;
 
 	range = get_stack_range(stack_a);
-	chunks = (stack_a->num_of_nodes <= 100)
+	if (stack_a->num_of_nodes <= 100)
+		chunks = 5;
+	else
+		chunks = 11;
+	chunk_size = (range.max - range.min + 1) / chunks + 1;
+	i = 0;
+	while (i < chunks)
+	{
+		chunk.min = range.min + (i * chunk_size);
+		chunk.max = chunk.min + chunk_size - 1;
+		if (i == chunks - 1)
+			chunk.max = range.max;
+		push_numbers_to_b(stack_a, stack_b, chunk);
+		i++;
+	}
+	sort_back_to_a(stack_a, stack_b);
 }
