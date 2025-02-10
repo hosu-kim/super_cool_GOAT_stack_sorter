@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/09 04:33:42 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/10 01:48:14 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 // stack_manager.c
 t_stack	*init_stack(void);
-void	push(t_stack *stack, int number);
+void	push_into_stack(t_stack *stack, int number);
 int		pop(t_stack *stack);
 void	print_stack(t_stack *stack_a);
 void	clear_stacks(t_stack *stack_a, t_stack *stack_b);

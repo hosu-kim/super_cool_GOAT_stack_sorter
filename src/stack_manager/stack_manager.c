@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/07 21:39:20 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/10 01:53:29 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,22 @@ t_stack	*init_stack(void)
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
-	{
-		perror("Error: Memory allocation failed in init_stack().\n");
-		exit(1);
-	}
+		error_exit();
 	stack->top_node = NULL;
 	stack->num_of_nodes = 0;
 	return (stack);
 }
 
-void	push(t_stack *stack, int number)
+void	push_into_stack(t_stack *stack, int number)
 {
-	t_node	*new;
+	t_node	*new_node;
 
-	new = (t_node *)malloc(sizeof(t_node));
-	if (!new)
-	{
-		perror("Error: Memory allocation failed in push().\n");
-		exit(1);
-	}
-	new->number = number;
-	new->next = stack->top_node;
-	stack->top_node = new;
+	new_node = (t_node *)malloc(sizeof(t_node));
+	if (!new_node)
+		error_exit();
+	new_node->number = number;
+	new_node->next = stack->top_node;
+	stack->top_node = new_node;
 	stack->num_of_nodes++;
 }
 

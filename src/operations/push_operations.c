@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:42:41 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/04 21:49:50 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/10 01:48:14 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 	if (stack_b->num_of_nodes == 0)
 		return ;
 	number = pop(stack_b);
-	push(stack_a, number);
+	push_into_stack(stack_a, number);
 	write(1, "pa used.\n", 9);
 }
 
@@ -32,6 +32,6 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a->num_of_nodes == 0)
 		return ;
 	number = pop(stack_a);
-	push(stack_b, number);
+	push_into_stack(stack_b, number);
 	write(1, "pb used.\n", 9);
 }
