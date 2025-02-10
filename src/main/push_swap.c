@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:24 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 21:36:22 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/10 22:15:40 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 	i = argc - 1;
 	while (i > 0)
 	{
-		push_number_into_stack(stack_a, ft_atoi(argv[i]));
+		insert_number_into_stack(stack_a, ft_atoi(argv[i]));
 		i--;
 	}
 	same_number_checker(stack_a);

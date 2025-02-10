@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 21:30:03 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/10 22:25:07 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ t_stack	*stack_setup(void)
 	return (stack);
 }
 
-void	push_number_into_stack(t_stack *stack, int new_number)
+/**
+ * @brief adds a new node into the stack
+ * 		  and allocates the provided number to stored_number.
+ */
+void	insert_number_into_stack(t_stack *stack, int new_number)
 {
 	t_node	*new_node;
 
