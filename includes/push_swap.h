@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 22:15:40 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/11 00:13:29 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,7 @@ int		get_target_position(t_stack *stack, int target_num);
 
 // general_utils.c
 void	error_exit(void);
-int		ft_atoi(const char *str);
-void	ft_putnbr(int n);
-//general_utils2.c
-void	same_number_checker(t_stack *stack);
+void	same_node_checker(t_stack *stack);
 int		is_sorted(t_stack *stack);
 
 #endif

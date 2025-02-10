@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/04 21:42:25 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/11 00:21:28 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ void	error_exit(void)
 	exit(1);
 }
 
-/// @brief converts a number in a string to integer.
-/// @note Ascii: 9: '\t', 10: '\n', 11: '\v' 12: '\f', 13: '\r
+/**
+ * @brief converts an integer in a string to integer.
+ * @note characters to skip 
+ * 			1. ' ', '\t', '\n', '\v', '\f', '\r (9-13)
+ * 			2. '-' and '+'
+ **/ 
 int	ft_atoi(const char *str)
 {
 	int		sign;
@@ -47,26 +51,36 @@ int	ft_atoi(const char *str)
 	return (sign * result);
 }
 
-static void	ft_putchar(char c)
+void	same_node_checker(t_stack *stack)
 {
-	write(1, &c, 1);
+	t_node	*base_node;
+	t_node	*compare_node;
+
+	base_node = stack->top_node;
+	while (base_node)
+	{
+		compare_node = base_node->next_node;
+		while (compare_node)
+		{
+			if (base_node->stored_number == compare_node->stored_number)
+				error_exit();
+			compare_node = compare_node->next_node;
+		}
+		base_node = base_node->next_node;
+	}
 }
 
-void	ft_putnbr(int n)
+int	is_sorted(t_stack *stack)
 {
-	long	num;
+	t_node	*current_node;
 
-	num = n;
-	if (num < 0)
+	current_node = stack->top_node;
+	while (current_node && current_node->next_node)
 	{
-		ft_putchar('-');
-		num = -num;
+		if (current_node->stored_number > \
+			current_node->next_node->stored_number)
+			return (0);
+		current_node = current_node->next_node;
 	}
-	if (num >= 10)
-	{
-		ft_putnbr(num / 10);
-		ft_putnbr(num % 10);
-	}
-	else
-		ft_putchar(num + '0');
+	return (1);
 }

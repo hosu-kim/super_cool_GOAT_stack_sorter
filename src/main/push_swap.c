@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 22:12:24 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 22:15:40 by hoskim           ###   ########seoul.kr  */
+/*   Created: 2025/02/11 00:30:06 by hoskim            #+#    #+#             */
+/*   Updated: 2025/02/11 00:30:30 by hoskim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		insert_number_into_stack(stack_a, ft_atoi(argv[i]));
 		i--;
 	}
-	same_number_checker(stack_a);
+	same_node_checker(stack_a);
 	if (!is_sorted(stack_a))
 		sort_stacks(stack_a, stack_b);
 	print_stack(stack_a);
@@ -55,9 +55,9 @@ int	main(int argc, char **argv)
 	- function usage steps
 		1. stack_setup()		     | stack_manager.c
 		2. insert_number_into_stack()| stack_manager.c
-		3. ft_atoi() 			     | utils.c
-		4. same_number_checker()     | utils.c
-		5. is_sorted()			     | utils.c
-		6. sort_stack() -CORE FUNC.  | stack_sorter.c
-		7. clear_stacks()		     | stackmanager.c
+		3. ft_atoi() 			     | general_utils.c
+		4. same_node_checker()       | general_utils.c
+		5. is_sorted()			     | general_utils.c
+		6. sort_stack() -CORE FUNC.  | sort_manager.c
+		7. clear_stacks()		     | stack_manager.c
 */
