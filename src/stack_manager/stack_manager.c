@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 19:18:35 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/10 21:30:03 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @brief Initializes a structure(stack) with its members.
  * @note size of t_stack: 12 bytes {pointer(8 bytes in x64) and int}
  */
-t_stack	*init_stack(void)
+t_stack	*stack_setup(void)
 {
 	t_stack	*stack;
 

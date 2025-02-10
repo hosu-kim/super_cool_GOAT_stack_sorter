@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:24 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 19:22:05 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/10 21:36:22 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,18 @@
 /**
  * @brief Main function of push_swap program
  * 
- * This program sorts a stack of integers using two stacks (A and B) and
- * a limited set of operations. The program takes integers as arguments,
- * stores them in stack A, and sorts them using various stack operations.
+ * This program sorts integers using two stacks (A and B)
+ * and a limited set of operations.
  * 
- * @ note Algorithm steps:
- * -# Initialize both stacks A and B
- * -# Push input numbers to stack A in reverse order
+ * @note Algorithm steps:
+ * -# Initialize stacks
+ * -# Insert numbers to stack A in reverse order
  * -# Check for duplicate numbers
  * -# Sort the stack if not already sorted
  * -# Clean up allocated memory
  * 
  * @warning All input numbers must be valid integers
- * @warning No duplicate numbers are allowed
+ * @warning No duplicate numbers
  */
 int	main(int argc, char **argv)
 {
@@ -37,8 +36,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	stack_a = init_stack();
-	stack_b = init_stack();
+	stack_a = stack_setup();
+	stack_b = stack_setup();
 	i = argc - 1;
 	while (i > 0)
 	{
@@ -53,12 +52,12 @@ int	main(int argc, char **argv)
 	return (0);
 }
 /* @note 
-	- function usage
-		1. init_stack()			     | stack_manager.c  OK.
+	- function usage steps
+		1. stack_setup()		     | stack_manager.c
 		2. insert_number_into_stack()| stack_manager.c
 		3. ft_atoi() 			     | utils.c
 		4. same_number_checker()     | utils.c
 		5. is_sorted()			     | utils.c
-		6. sort_stack()-CORE	     | stack_sorter.c
+		6. sort_stack() -CORE FUNC.  | stack_sorter.c
 		7. clear_stacks()		     | stackmanager.c
 */
