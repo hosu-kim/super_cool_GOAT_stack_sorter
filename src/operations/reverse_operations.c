@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:03:36 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/02 20:41:21 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/10 19:18:35 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	reverse(t_stack *stack)
 	t_node	*prev;
 	t_node	*last;
 
-	if (stack->num_of_nodes < 2)
+	if (stack->total_nodes < 2)
 		return ;
 	prev = stack->top_node;
-	while (prev->next->next)
-		prev = prev->next;
-	last = prev->next;
-	prev->next = NULL;
-	last->next = stack->top_node;
+	while (prev->next_node->next_node)
+		prev = prev->next_node;
+	last = prev->next_node;
+	prev->next_node = NULL;
+	last->next_node = stack->top_node;
 	stack->top_node = last;
 }
 
@@ -42,7 +42,7 @@ void	rrb(t_stack *stack_b)
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->num_of_nodes >= 2 && stack_b->num_of_nodes >= 2)
+	if (stack_a->total_nodes >= 2 && stack_b->total_nodes >= 2)
 	{
 		reverse(stack_a);
 		reverse(stack_b);

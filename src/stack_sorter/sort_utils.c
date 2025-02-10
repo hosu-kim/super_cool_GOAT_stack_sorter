@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:30:03 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/09 21:42:03 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/10 19:18:35 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ t_range	get_stack_range(t_stack *stack)
 		range.max = 0;
 		return (range);
 	}
-	range.min = stack->top_node->number;
-	range.max = stack->top_node->number;
-	current_node = stack->top_node->next;
+	range.min = stack->top_node->stored_number;
+	range.max = stack->top_node->stored_number;
+	current_node = stack->top_node->next_node;
 	while (current_node)
 	{
-		if (current_node->number < range.min)
-			range.min = current_node->number;
-		if (current_node->number > range.max)
-			range.max = current_node->number;
-		current_node = current_node->next;
+		if (current_node->stored_number < range.min)
+			range.min = current_node->stored_number;
+		if (current_node->stored_number > range.max)
+			range.max = current_node->stored_number;
+		current_node = current_node->next_node;
 	}
 	return (range);
 }
@@ -46,18 +46,18 @@ int	find_min_position(t_stack *stack)
 
 	if (!stack || !stack->top_node)
 		return (0);
-	min = stack->top_node->number;
-	current_node = stack->top_node->next;
+	min = stack->top_node->stored_number;
+	current_node = stack->top_node->next_node;
 	position = 2;
 	min_position = 1;
 	while (current_node)
 	{
-		if (current_node->number < min)
+		if (current_node->stored_number < min)
 		{
-			min = current_node->number;
+			min = current_node->stored_number;
 			min_position = position;
 		}
-		current_node = current_node->next;
+		current_node = current_node->next_node;
 		position++;
 	}
 	return (min_position);
@@ -72,18 +72,18 @@ int	find_max_position(t_stack *stack)
 
 	if (!stack || !stack->top_node)
 		return (0);
-	max = stack->top_node->number;
-	current_node = stack->top_node->next;
+	max = stack->top_node->stored_number;
+	current_node = stack->top_node->next_node;
 	position = 2;
 	max_position = 1;
 	while (current_node)
 	{
-		if (current_node->number > max)
+		if (current_node->stored_number > max)
 		{
-			max = current_node->number;
+			max = current_node->stored_number;
 			max_position = position;
 		}
-		current_node = current_node->next;
+		current_node = current_node->next_node;
 		position++;
 	}
 	return (max_position);
@@ -100,11 +100,11 @@ int	get_target_position(t_stack *stack, int target_num)
 		return (0);
 	while (current_node)
 	{
-		if (current_node->number >= target_num)
+		if (current_node->stored_number >= target_num)
 			return (position);
 		position++;
-		current_node = current_node->next;
-		if (position > stack->num_of_nodes)
+		current_node = current_node->next_node;
+		if (position > stack->total_nodes)
 			return (1);
 	}
 	return (1);

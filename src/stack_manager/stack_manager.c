@@ -6,12 +6,16 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 01:53:29 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/10 19:18:35 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/**
+ * @brief Initializes a structure(stack) with its members.
+ * @note size of t_stack: 12 bytes {pointer(8 bytes in x64) and int}
+ */
 t_stack	*init_stack(void)
 {
 	t_stack	*stack;
@@ -20,21 +24,21 @@ t_stack	*init_stack(void)
 	if (!stack)
 		error_exit();
 	stack->top_node = NULL;
-	stack->num_of_nodes = 0;
+	stack->total_nodes = 0;
 	return (stack);
 }
 
-void	push_into_stack(t_stack *stack, int number)
+void	push_number_into_stack(t_stack *stack, int new_number)
 {
 	t_node	*new_node;
 
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 		error_exit();
-	new_node->number = number;
-	new_node->next = stack->top_node;
+	new_node->stored_number = new_number;
+	new_node->next_node = stack->top_node;
 	stack->top_node = new_node;
-	stack->num_of_nodes++;
+	stack->total_nodes++;
 }
 
 int	pop(t_stack *stack)
@@ -42,13 +46,13 @@ int	pop(t_stack *stack)
 	t_node	*temp;
 	int		number;
 
-	if (stack->num_of_nodes == 0)
+	if (stack->total_nodes == 0)
 		error_exit();
 	temp = stack->top_node;
-	number = temp->number;
-	stack->top_node = temp->next;
+	number = temp->stored_number;
+	stack->top_node = temp->next_node;
 	free(temp);
-	stack->num_of_nodes--;
+	stack->total_nodes--;
 	return (number);
 }
 
@@ -60,10 +64,10 @@ void	print_stack(t_stack *stack_a)
 	current_node = stack_a->top_node;
 	while (current_node)
 	{
-		ft_putnbr(current_node->number);
-		if (current_node->next)
+		ft_putnbr(current_node->stored_number);
+		if (current_node->next_node)
 			write(1, " ", 1);
-		current_node = current_node->next;
+		current_node = current_node->next_node;
 	}
 	write(1, "\n\n", 2);
 }
@@ -86,14 +90,14 @@ void	clear_stacks(t_stack *stack_a, t_stack *stack_b)
 	current = stack_a->top_node;
 	while (current)
 	{
-		next = current->next;
+		next = current->next_node;
 		free(current);
 		current = next;
 	}
 	current = stack_b->top_node;
 	while (current)
 	{
-		next = current->next;
+		next = current->next_node;
 		free(current);
 		current = next;
 	}

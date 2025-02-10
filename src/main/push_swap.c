@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:24 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 01:48:14 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/10 19:22:05 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	i = argc - 1;
 	while (i > 0)
 	{
-		push_into_stack(stack_a, ft_atoi(argv[i]));
+		push_number_into_stack(stack_a, ft_atoi(argv[i]));
 		i--;
 	}
 	same_number_checker(stack_a);
@@ -54,11 +54,11 @@ int	main(int argc, char **argv)
 }
 /* @note 
 	- function usage
-		1. init_stack()			 | stack_manager.c
-		2. push() 				 | stack_manager.c
-		3. ft_atoi() 			 | utils.c
-		4. same_number_checker() | utils.c
-		5. is_sorted()			 | utils.c
-		6. sort_stack()-CORE	 | stack_sorter.c
-		7. clear_stacks()		 | stackmanager.c
+		1. init_stack()			     | stack_manager.c  OK.
+		2. insert_number_into_stack()| stack_manager.c
+		3. ft_atoi() 			     | utils.c
+		4. same_number_checker()     | utils.c
+		5. is_sorted()			     | utils.c
+		6. sort_stack()-CORE	     | stack_sorter.c
+		7. clear_stacks()		     | stackmanager.c
 */

@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/09 01:53:07 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/10 19:23:16 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 // ex. stack_a = {2, 1}
 void	sort_two(t_stack *stack_a)
 {
-	if (stack_a->top_node->number > stack_a->top_node->next->number)
+	if (stack_a->top_node->stored_number > \
+		stack_a->top_node->next_node->stored_number)
 		sa(stack_a);
 }
 
@@ -32,9 +33,9 @@ void	sort_three(t_stack *stack_a)
 	int	second;
 	int	third;
 
-	first = stack_a->top_node->number;
-	second = stack_a->top_node->next->number;
-	third = stack_a->top_node->next->next->number;
+	first = stack_a->top_node->stored_number;
+	second = stack_a->top_node->next_node->stored_number;
+	third = stack_a->top_node->next_node->next_node->stored_number;
 	if (first > second && second < third && first < third)
 		sa(stack_a);
 	else if (first > second && second > third)
@@ -57,12 +58,12 @@ void	sort_small(t_stack *stack_a, t_stack *stack_b)
 {
 	int	target_position;
 
-	while (stack_a->num_of_nodes > 3)
+	while (stack_a->total_nodes > 3)
 	{
 		target_position = find_min_position(stack_a);
 		while (target_position != 1)
 		{
-			if (target_position <= stack_a->num_of_nodes / 2)
+			if (target_position <= stack_a->total_nodes / 2)
 				ra(stack_a);
 			else
 				rra(stack_a);
@@ -71,6 +72,6 @@ void	sort_small(t_stack *stack_a, t_stack *stack_b)
 		pb(stack_a, stack_b);
 	}
 	sort_three(stack_a);
-	while (stack_b->num_of_nodes > 0)
+	while (stack_b->total_nodes > 0)
 		pa(stack_a, stack_b);
 }
