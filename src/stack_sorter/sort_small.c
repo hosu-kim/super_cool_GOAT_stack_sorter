@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 19:23:16 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/11 17:45:20 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 // ex. stack_a = {2, 1}
 void	sort_two(t_stack *stack_a)
 {
-	if (stack_a->top_node->stored_number > \
-		stack_a->top_node->next_node->stored_number)
+	int	first;
+	int	second;
+
+	first = stack_a->top_node->stored_number;
+	second = stack_a->top_node->next_node->stored_number;
+	if (first > second)
 		sa(stack_a);
 }
 

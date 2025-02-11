@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 00:31:50 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/11 00:31:55 by hoskim           ###   ########.fr       */
+/*   Created: 2025/02/11 18:09:58 by hoskim            #+#    #+#             */
+/*   Updated: 2025/02/11 18:10:01 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	sort_stacks(t_stack *stack_a, t_stack *stack_b)
 {
-	if (is_sorted(stack_a))
-		return ;
 	if (stack_a->total_nodes == 2)
 		sort_two(stack_a);
 	else if (stack_a->total_nodes == 3)
