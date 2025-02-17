@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 22:25:07 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/17 17:15:37 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_stack	*stack_setup(void)
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		error_exit();
-	stack->top_node = NULL;
+	stack->head_node = NULL;
 	stack->total_nodes = 0;
 	return (stack);
 }
@@ -40,32 +40,32 @@ void	insert_number_into_stack(t_stack *stack, int new_number)
 	if (!new_node)
 		error_exit();
 	new_node->stored_number = new_number;
-	new_node->next_node = stack->top_node;
-	stack->top_node = new_node;
+	new_node->next_node = stack->head_node;
+	stack->head_node = new_node;
 	stack->total_nodes++;
 }
 
-int	pop(t_stack *stack)
+int	extract_top_number(t_stack *stack)
 {
 	t_node	*temp;
 	int		number;
 
 	if (stack->total_nodes == 0)
 		error_exit();
-	temp = stack->top_node;
+	temp = stack->head_node;
 	number = temp->stored_number;
-	stack->top_node = temp->next_node;
+	stack->head_node = temp->next_node;
 	free(temp);
 	stack->total_nodes--;
 	return (number);
 }
 
-void	print_stack(t_stack *stack_a)
+void	print_stack_a(t_stack *stack_a)
 {
 	t_node	*current_node;
 
 	write(1, "\nThe provided numbers are sorted in ascending order: ", 52);
-	current_node = stack_a->top_node;
+	current_node = stack_a->head_node;
 	while (current_node)
 	{
 		ft_putnbr(current_node->stored_number);
@@ -91,14 +91,14 @@ void	clear_stacks(t_stack *stack_a, t_stack *stack_b)
 
 	if (!stack_a || !stack_b)
 		return ;
-	current = stack_a->top_node;
+	current = stack_a->head_node;
 	while (current)
 	{
 		next = current->next_node;
 		free(current);
 		current = next;
 	}
-	current = stack_b->top_node;
+	current = stack_b->head_node;
 	while (current)
 	{
 		next = current->next_node;

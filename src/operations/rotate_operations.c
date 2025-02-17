@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 03:33:34 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/10 19:18:35 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/17 17:15:37 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	rotate(t_stack *stack)
 
 	if (stack->total_nodes < 2)
 		return ;
-	first_node = stack->top_node;
+	first_node = stack->head_node;
 	last_node = first_node;
 	while (last_node->next_node)
 		last_node = last_node ->next_node;
-	stack->top_node = first_node->next_node;
+	stack->head_node = first_node->next_node;
 	first_node->next_node = NULL;
 	last_node->next_node = first_node;
 }

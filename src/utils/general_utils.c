@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/11 00:21:28 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/17 17:15:37 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	same_node_checker(t_stack *stack)
 	t_node	*base_node;
 	t_node	*compare_node;
 
-	base_node = stack->top_node;
+	base_node = stack->head_node;
 	while (base_node)
 	{
 		compare_node = base_node->next_node;
@@ -74,7 +74,7 @@ int	is_sorted(t_stack *stack)
 {
 	t_node	*current_node;
 
-	current_node = stack->top_node;
+	current_node = stack->head_node;
 	while (current_node && current_node->next_node)
 	{
 		if (current_node->stored_number > \

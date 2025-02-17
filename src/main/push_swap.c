@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 00:30:06 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/11 00:30:30 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/17 17:01:32 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 	same_node_checker(stack_a);
 	if (!is_sorted(stack_a))
 		sort_stacks(stack_a, stack_b);
-	print_stack(stack_a);
+	print_stack_a(stack_a);
 	clear_stacks(stack_a, stack_b);
 	return (0);
 }

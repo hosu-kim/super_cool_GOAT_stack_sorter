@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/11 00:13:29 by hoskim           ###   ########.fr       */
+/*   Updated: 2025/02/17 17:20:05 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,70 +18,89 @@
 # include <unistd.h>
 # include <limits.h> // INT_MAX
 
-// Structure representing a stack.
+/*
+** ========================= STRUCTURES =========================
+ */
+
+// Structure for a single node in a stack
 typedef struct s_stack
 {
-	t_node	*top_node;
+	t_node	*head_node;
 	int		total_nodes;
 }	t_stack;
 
-// Structure for a single node in a linked list.
+// Structure representing a stack
 typedef struct s_node
 {
 	int				stored_number;
 	struct s_node	*next_node;
 }	t_node;
 
+// Structure for range values
 typedef struct s_range
 {
 	int	min;
 	int	max;
 }	t_range;
 
-// operations_swap.c
-// Push the top_node element of one stack to another.
+/*
+** ========================= STACK OPERATIONS =========================
+ */
+
+/* Basic Stack Management */
+t_stack	*stack_setup(void);
+void	insert_number_into_stack(t_stack *stack, int number);
+int		extract_top_number(t_stack *stack);
+void	print_stack_a(t_stack *stack_a);
+void	clear_stacks(t_stack *stack_a, t_stack *stack_b);
+
+/* Stack Operation Commands */
+// Push the head node to another stack.
 void	pa(t_stack *stack_a, t_stack *stack_b);
 void	pb(t_stack *stack_a, t_stack *stack_b);
-// Swap the top_node two elements of one stack or both.
+
+// Swap the head node and the second node of the body 
+// (ss: done in the both stacks)
 void	swap(t_stack *stack);
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
-// Rotate the top_node element of one stack or both to the bottom.
+
+// Rotate the head_node element of one stack or both to the bottom.
+void	rotate(t_stack *stack);
 void	ra(t_stack *stack_a);
 void	rb(t_stack *stack_b);
 void	rr(t_stack *stack_a, t_stack *stack_b);
-// Reverse rotate the bottom element of one stack or both to the top_node.
+
+// Reverse rotate the bottom element of one stack or both to the head_node.
 void	reverse(t_stack *stack);
 void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
-// stack_manager.c
-t_stack	*stack_setup(void);
-void	insert_number_into_stack(t_stack *stack, int number);
-int		pop(t_stack *stack);
-void	print_stack(t_stack *stack_a);
-void	clear_stacks(t_stack *stack_a, t_stack *stack_b);
-
-// sort_large.c
-void	sort_large(t_stack *stack_a, t_stack *stack_b);
-
-// sort_manager.c
+/*
+** ========================= SORTING ALGORITHMS =========================
+*/
+/* Main Sorting Functions */
 void	sort_stacks(t_stack *stack_a, t_stack *stack_b);
 
-// sort_small.c
+/* Size-specific Sorting */
 void	sort_two(t_stack *stack_a);
 void	sort_three(t_stack *stack_a);
-void	sort_small(t_stack *stack_a, t_stack *stack_b);
+void	sort_four_five(t_stack *stack_a, t_stack *stack_b);
+void	sort_large(t_stack *stack_a, t_stack *stack_b);
 
-// sort_utils.c
+/*
+** ========================= UTILITY FUNCTIONS =========================
+*/
+
+/* Stack Analysis Utils */
 t_range	get_stack_range(t_stack *stack);
 int		find_min_position(t_stack *stack);
 int		find_max_position(t_stack *stack);
 int		get_target_position(t_stack *stack, int target_num);
 
-// general_utils.c
+/* General Utils*/
 void	error_exit(void);
 void	same_node_checker(t_stack *stack);
 int		is_sorted(t_stack *stack);
