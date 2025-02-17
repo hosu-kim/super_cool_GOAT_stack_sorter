@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/17 17:20:05 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/17 20:30:00 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_range
 /* Basic Stack Management */
 t_stack	*stack_setup(void);
 void	insert_number_into_stack(t_stack *stack, int number);
-int		extract_top_number(t_stack *stack);
+int		extract_head_number(t_stack *stack);
 void	print_stack_a(t_stack *stack_a);
 void	clear_stacks(t_stack *stack_a, t_stack *stack_b);
 

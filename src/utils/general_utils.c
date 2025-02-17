@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/17 17:15:37 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/17 20:47:40 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	error_exit(void)
  * @note characters to skip 
  * 			1. ' ', '\t', '\n', '\v', '\f', '\r (9-13)
  * 			2. '-' and '+'
- **/ 
+ **/
 int	ft_atoi(const char *str)
 {
 	int		sign;

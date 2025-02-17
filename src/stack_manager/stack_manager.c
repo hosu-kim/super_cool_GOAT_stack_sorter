@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/17 17:15:37 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/17 20:30:00 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	insert_number_into_stack(t_stack *stack, int new_number)
 	stack->total_nodes++;
 }
 
-int	extract_top_number(t_stack *stack)
+int	extract_head_number(t_stack *stack)
 {
 	t_node	*temp;
 	int		number;
