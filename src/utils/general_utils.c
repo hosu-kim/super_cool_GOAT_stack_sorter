@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/17 20:48:06 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/17 20:50:59 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,29 @@ void	error_exit(void)
  **/
 int	ft_atoi(const char *str)
 {
-	int		sign;
+	int		is_minus;
 	long	result;
 
-	sign = 1;
+	is_minus = 1;
 	result = 0;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
-			sign = -1;
+			is_minus = -1;
 		str++;
 	}
 	while (*str >= '0' && *str <= '9')
 	{
 		result = result * 10 + (*str - '0');
-		if (result * sign > 2147483647 || result * sign < -2147483648)
+		if (result * is_minus > 2147483647 || result * is_minus < -2147483648)
 			error_exit();
 		str++;
 	}
 	if (*str != '\0')
 		error_exit();
-	return (sign * result);
+	return (is_minus * result);
 }
 
 void	same_node_checker(t_stack *stack)
