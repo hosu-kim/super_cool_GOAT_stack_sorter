@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 20:02:45 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 20:50:05 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	handle_stack_rotation(t_stack *stack_a, int position)
 	if (position <= stack_a->total_nodes / 2)
 		ra(stack_a);
 	else
-		rra(stack_a);
+		reverse_tail_to_head_a(stack_a);
 }
 
 static void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b, t_range chunk)
@@ -69,7 +69,7 @@ static void	sort_back_to_a(t_stack *stack_a, t_stack *stack_b)
 			if (max_position <= stack_b->total_nodes / 2)
 				rb(stack_b);
 			else
-				rrb(stack_b);
+				reverse_tail_to_head_b(stack_b);
 			moves--;
 		}
 		push_node_from_b_to_a(stack_a, stack_b);

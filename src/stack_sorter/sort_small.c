@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 20:02:45 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 20:49:48 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	sort_three(t_stack *stack_a)
 	else if (first > second && second < third && first > third)
 		ra(stack_a);
 	else if (first < second && second > third && first > third)
-		rra(stack_a);
+		reverse_tail_to_head_a(stack_a);
 	else if (first < second && second > third && first < third)
 	{
 		sa(stack_a);
@@ -54,7 +54,7 @@ void	sort_three(t_stack *stack_a)
 	else if (first > second && second > third)
 	{
 		sa(stack_a);
-		rra(stack_a);
+		reverse_tail_to_head_a(stack_a);
 	}
 }
 
@@ -74,7 +74,7 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 			if (target_position <= stack_a->total_nodes / 2)
 				ra(stack_a);
 			else
-				rra(stack_a);
+				reverse_tail_to_head_a(stack_a);
 			target_position = find_min_position(stack_a);
 		}
 		push_node_from_a_to_b(stack_a, stack_b);

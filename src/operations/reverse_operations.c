@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:03:36 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 20:18:07 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 20:50:05 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,24 @@ void	reverse(t_stack *stack)
 	stack->head_node = tail;
 }
 
-void	rra(t_stack *stack_a)
+void	reverse_tail_to_head_a(t_stack *stack_a)
 {
 	reverse(stack_a);
-	write(1, "rra used.\n", 11);
+	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *stack_b)
+void	reverse_tail_to_head_b(t_stack *stack_b)
 {
 	reverse(stack_b);
-	write(1, "rrb used.\n", 11);
+	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *stack_a, t_stack *stack_b)
+void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->total_nodes >= 2 && stack_b->total_nodes >= 2)
 	{
 		reverse(stack_a);
 		reverse(stack_b);
-		write(1, "rrr used.\n", 11);
+		write(1, "rrr\n", 4);
 	}
 }
