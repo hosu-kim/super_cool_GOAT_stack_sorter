@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/17 20:50:59 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 19:14:26 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		result = result * 10 + (*str - '0');
-		if (result * is_minus > 2147483647 || result * is_minus < -2147483648)
+		if (result * is_minus > INT_MAX || result * is_minus < INT_MIN)
 			error_exit();
 		str++;
 	}
