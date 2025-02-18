@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 19:51:58 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 20:02:45 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 				rra(stack_a);
 			target_position = find_min_position(stack_a);
 		}
-		pb(stack_a, stack_b);
+		push_node_from_a_to_b(stack_a, stack_b);
 	}
 	sort_three(stack_a);
 	while (stack_b->total_nodes > 0)

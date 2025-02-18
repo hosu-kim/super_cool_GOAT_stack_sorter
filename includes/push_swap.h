@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 19:59:26 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 20:02:45 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	free_stacks(t_stack *stack_a, t_stack *stack_b);
 /* Stack Operation Commands */
 // Push the head node to another stack.
 void	push_node_from_b_to_a(t_stack *stack_a, t_stack *stack_b);
-void	pb(t_stack *stack_a, t_stack *stack_b);
+void	push_node_from_a_to_b(t_stack *stack_a, t_stack *stack_b);
 
 // Swap the head node and the second node of the body 
 // (ss: done in the both stacks)

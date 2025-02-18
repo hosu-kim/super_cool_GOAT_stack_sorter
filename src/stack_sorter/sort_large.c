@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 19:51:58 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 20:02:45 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b, t_range chunk)
 		target = stack_a->head_node->stored_number;
 		if (target >= chunk.min && target <= chunk.max)
 		{
-			pb(stack_a, stack_b);
+			push_node_from_a_to_b(stack_a, stack_b);
 			if (stack_b->head_node->stored_number < (chunk.min + chunk.max) / 2)
 				rb(stack_b);
 			rotation_count = 0;
