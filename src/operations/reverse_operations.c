@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:03:36 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/17 17:15:37 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 20:18:07 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	reverse(t_stack *stack)
 {
-	t_node	*prev;
-	t_node	*last;
+	t_node	*before_tail;
+	t_node	*tail;
 
 	if (stack->total_nodes < 2)
 		return ;
-	prev = stack->head_node;
-	while (prev->next_node->next_node)
-		prev = prev->next_node;
-	last = prev->next_node;
-	prev->next_node = NULL;
-	last->next_node = stack->head_node;
-	stack->head_node = last;
+	before_tail = stack->head_node;
+	while (before_tail->next_node->next_node)
+		before_tail = before_tail->next_node;
+	tail = before_tail->next_node;
+	before_tail->next_node = NULL;
+	tail->next_node = stack->head_node;
+	stack->head_node = tail;
 }
 
 void	rra(t_stack *stack_a)
