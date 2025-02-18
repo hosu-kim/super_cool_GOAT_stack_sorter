@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 00:30:06 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 19:31:22 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 19:59:26 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	stack_a = stack_setup();
-	stack_b = stack_setup();
+	stack_a = create_stack();
+	stack_b = create_stack();
 	i = argc - 1;
 	while (i > 0)
 	{
@@ -48,16 +48,16 @@ int	main(int argc, char **argv)
 	if (!is_sorted(stack_a))
 		sort_stacks(stack_a, stack_b);
 	print_stack_a(stack_a);
-	clear_stacks(stack_a, stack_b);
+	free_stacks(stack_a, stack_b);
 	return (0);
 }
 /* @note 
 	- function usage steps
-		1. stack_setup()		     | stack_manager.c
+		1. create_stack()		     | stack_manager.c
 		2. insert_number_into_stack()| stack_manager.c
 		3. ft_atoi() 			     | general_utils.c
 		4. same_number_checker()       | general_utils.c
 		5. is_sorted()			     | general_utils.c
 		6. sort_stack() -CORE FUNC.  | sort_manager.c
-		7. clear_stacks()		     | stack_manager.c
+		7. free_stacks()		     | stack_manager.c
 */

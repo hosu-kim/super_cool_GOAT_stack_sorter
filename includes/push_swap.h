@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 19:31:22 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 19:59:26 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ typedef struct s_range
  */
 
 /* Basic Stack Management */
-t_stack	*stack_setup(void);
+t_stack	*create_stack(void);
 void	insert_number_into_stack(t_stack *stack, int number);
 int		extract_head_number(t_stack *stack);
 void	print_stack_a(t_stack *stack_a);
-void	clear_stacks(t_stack *stack_a, t_stack *stack_b);
+void	free_stacks(t_stack *stack_a, t_stack *stack_b);
 
 /* Stack Operation Commands */
 // Push the head node to another stack.
-void	pa(t_stack *stack_a, t_stack *stack_b);
+void	push_node_from_b_to_a(t_stack *stack_a, t_stack *stack_b);
 void	pb(t_stack *stack_a, t_stack *stack_b);
 
 // Swap the head node and the second node of the body 

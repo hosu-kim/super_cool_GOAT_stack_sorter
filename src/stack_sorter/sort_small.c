@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/17 17:15:37 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 19:51:58 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,5 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 	}
 	sort_three(stack_a);
 	while (stack_b->total_nodes > 0)
-		pa(stack_a, stack_b);
+		push_node_from_b_to_a(stack_a, stack_b);
 }

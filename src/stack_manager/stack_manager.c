@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/17 20:30:00 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 19:59:26 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @brief Initializes a structure(stack) with its members.
  * @note size of t_stack: 12 bytes {pointer(8 bytes in x64) and int}
  */
-t_stack	*stack_setup(void)
+t_stack	*create_stack(void)
 {
 	t_stack	*stack;
 
@@ -84,7 +84,7 @@ void	print_stack_a(t_stack *stack_a)
  * -# Frees all nodes in each stack
  * -# Frees the stack structures themselves
  */
-void	clear_stacks(t_stack *stack_a, t_stack *stack_b)
+void	free_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*current;
 	t_node	*next;
