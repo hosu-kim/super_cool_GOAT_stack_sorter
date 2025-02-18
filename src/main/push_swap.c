@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 00:30:06 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/17 17:01:32 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 19:31:22 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		insert_number_into_stack(stack_a, ft_atoi(argv[i]));
 		i--;
 	}
-	same_node_checker(stack_a);
+	same_number_checker(stack_a);
 	if (!is_sorted(stack_a))
 		sort_stacks(stack_a, stack_b);
 	print_stack_a(stack_a);
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 		1. stack_setup()		     | stack_manager.c
 		2. insert_number_into_stack()| stack_manager.c
 		3. ft_atoi() 			     | general_utils.c
-		4. same_node_checker()       | general_utils.c
+		4. same_number_checker()       | general_utils.c
 		5. is_sorted()			     | general_utils.c
 		6. sort_stack() -CORE FUNC.  | sort_manager.c
 		7. clear_stacks()		     | stack_manager.c

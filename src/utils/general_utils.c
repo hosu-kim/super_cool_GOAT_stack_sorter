@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 19:18:47 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 19:31:22 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_atoi(const char *str)
 
 	is_minus = 1;
 	result = 0;
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+	while (*str == ' ' || ('\t' <= *str && *str <= '\r'))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
@@ -51,7 +51,7 @@ int	ft_atoi(const char *str)
 	return (is_minus * result);
 }
 
-void	same_node_checker(t_stack *stack)
+void	same_number_checker(t_stack *stack)
 {
 	t_node	*base_node;
 	t_node	*compare_node;
