@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 20:56:38 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 21:02:58 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 // Structure for a single node in a stack
 typedef struct s_stack
 {
-	t_node	*head_node;
+	t_node	*top_node;
 	int		total_nodes;
 }	t_stack;
 
@@ -66,13 +66,13 @@ void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
 
-// Rotate the head_node element of one stack or both to the bottom.
+// Rotate the top_node element of one stack or both to the bottom.
 void	rotate(t_stack *stack);
 void	ra(t_stack *stack_a);
 void	rb(t_stack *stack_b);
 void	rr(t_stack *stack_a, t_stack *stack_b);
 
-// Reverse rotate the bottom element of one stack or both to the head_node.
+// Reverse rotate the bottom element of one stack or both to the top_node.
 void	reverse(t_stack *stack);
 void	reverse_tail_to_head_a(t_stack *stack_a);
 void	reverse_tail_to_head_b(t_stack *stack_b);

@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 19:59:26 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 21:02:58 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_stack	*create_stack(void)
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		error_exit();
-	stack->head_node = NULL;
+	stack->top_node = NULL;
 	stack->total_nodes = 0;
 	return (stack);
 }
@@ -40,8 +40,8 @@ void	insert_number_into_stack(t_stack *stack, int new_number)
 	if (!new_node)
 		error_exit();
 	new_node->stored_number = new_number;
-	new_node->next_node = stack->head_node;
-	stack->head_node = new_node;
+	new_node->next_node = stack->top_node;
+	stack->top_node = new_node;
 	stack->total_nodes++;
 }
 
@@ -52,9 +52,9 @@ int	extract_head_number(t_stack *stack)
 
 	if (stack->total_nodes == 0)
 		error_exit();
-	temp = stack->head_node;
+	temp = stack->top_node;
 	number = temp->stored_number;
-	stack->head_node = temp->next_node;
+	stack->top_node = temp->next_node;
 	free(temp);
 	stack->total_nodes--;
 	return (number);
@@ -65,7 +65,7 @@ void	print_stack_a(t_stack *stack_a)
 	t_node	*current_node;
 
 	write(1, "\nThe provided numbers are sorted in ascending order: ", 52);
-	current_node = stack_a->head_node;
+	current_node = stack_a->top_node;
 	while (current_node)
 	{
 		ft_putnbr(current_node->stored_number);
@@ -91,14 +91,14 @@ void	free_stacks(t_stack *stack_a, t_stack *stack_b)
 
 	if (!stack_a || !stack_b)
 		return ;
-	current = stack_a->head_node;
+	current = stack_a->top_node;
 	while (current)
 	{
 		next = current->next_node;
 		free(current);
 		current = next;
 	}
-	current = stack_b->head_node;
+	current = stack_b->top_node;
 	while (current)
 	{
 		next = current->next_node;

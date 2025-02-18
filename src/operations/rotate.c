@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_operations.c                                :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 03:33:34 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/17 17:15:37 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/18 21:02:58 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	rotate(t_stack *stack)
 {
-	t_node	*first_node;
-	t_node	*last_node;
+	t_node	*head;
+	t_node	*tail;
 
 	if (stack->total_nodes < 2)
 		return ;
-	first_node = stack->head_node;
-	last_node = first_node;
-	while (last_node->next_node)
-		last_node = last_node ->next_node;
-	stack->head_node = first_node->next_node;
-	first_node->next_node = NULL;
-	last_node->next_node = first_node;
+	head = stack->top_node;
+	tail = head;
+	while (tail->next_node)
+		tail = tail ->next_node;
+	stack->top_node = head->next_node;
+	head->next_node = NULL;
+	tail->next_node = head;
 }
 
 void	ra(t_stack *stack_a)
