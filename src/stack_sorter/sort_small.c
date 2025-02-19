@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 21:02:58 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/19 18:18:39 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	sort_two(t_stack *stack_a)
 	first = stack_a->top_node->stored_number;
 	second = stack_a->top_node->next_node->stored_number;
 	if (first > second)
-		sa(stack_a);
+		swap_in_a(stack_a);
 }
 
 /* ex.
@@ -41,19 +41,19 @@ void	sort_three(t_stack *stack_a)
 	second = stack_a->top_node->next_node->stored_number;
 	third = stack_a->top_node->next_node->next_node->stored_number;
 	if (first > second && second < third && first < third)
-		sa(stack_a);
+		swap_in_a(stack_a);
 	else if (first > second && second < third && first > third)
-		ra(stack_a);
+		rotate_in_a(stack_a);
 	else if (first < second && second > third && first > third)
 		reverse_tail_to_head_a(stack_a);
 	else if (first < second && second > third && first < third)
 	{
-		sa(stack_a);
-		ra(stack_a);
+		swap_in_a(stack_a);
+		rotate_in_a(stack_a);
 	}
 	else if (first > second && second > third)
 	{
-		sa(stack_a);
+		swap_in_a(stack_a);
 		reverse_tail_to_head_a(stack_a);
 	}
 }
@@ -72,7 +72,7 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 		while (target_position != 1)
 		{
 			if (target_position <= stack_a->total_nodes / 2)
-				ra(stack_a);
+				rotate_in_a(stack_a);
 			else
 				reverse_tail_to_head_a(stack_a);
 			target_position = find_min_position(stack_a);

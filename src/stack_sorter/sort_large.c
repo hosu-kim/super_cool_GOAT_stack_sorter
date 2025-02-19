@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 21:02:58 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/19 18:04:29 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	get_optimal_moves(int position, int stack_size)
 static void	handle_stack_rotation(t_stack *stack_a, int position)
 {
 	if (position <= stack_a->total_nodes / 2)
-		ra(stack_a);
+		rotate_in_a(stack_a);
 	else
 		reverse_tail_to_head_a(stack_a);
 }
@@ -41,7 +41,7 @@ static void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b, t_range chunk)
 		{
 			push_node_from_a_to_b(stack_a, stack_b);
 			if (stack_b->top_node->stored_number < (chunk.min + chunk.max) / 2)
-				rb(stack_b);
+				rotate_in_b(stack_b);
 			rotation_count = 0;
 		}
 		else
@@ -67,7 +67,7 @@ static void	sort_back_to_a(t_stack *stack_a, t_stack *stack_b)
 		while (moves > 0)
 		{
 			if (max_position <= stack_b->total_nodes / 2)
-				rb(stack_b);
+				rotate_in_b(stack_b);
 			else
 				reverse_tail_to_head_b(stack_b);
 			moves--;

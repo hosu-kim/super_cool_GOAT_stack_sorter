@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 21:02:58 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/19 18:19:00 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,16 @@ void	push_node_from_a_to_b(t_stack *stack_a, t_stack *stack_b);
 
 // Swap the head node and the second node of the body 
 // (ss: done in the both stacks)
-void	swap(t_stack *stack);
-void	sa(t_stack *stack_a);
-void	sb(t_stack *stack_b);
-void	ss(t_stack *stack_a, t_stack *stack_b);
+void	swap_head_and_second_node(t_stack *stack);
+void	swap_in_a(t_stack *stack_a);
+void	swap_in_b(t_stack *stack_b);
+void	swap_both(t_stack *stack_a, t_stack *stack_b);
 
 // Rotate the top_node element of one stack or both to the bottom.
-void	rotate(t_stack *stack);
-void	ra(t_stack *stack_a);
-void	rb(t_stack *stack_b);
-void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rotate_head_to_tail(t_stack *stack);
+void	rotate_in_a(t_stack *stack_a);
+void	rotate_in_b(t_stack *stack_b);
+void	rotate_both(t_stack *stack_a, t_stack *stack_b);
 
 // Reverse rotate the bottom element of one stack or both to the top_node.
 void	reverse(t_stack *stack);
