@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 21:02:58 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/19 18:24:04 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 /**
  * @brief Initializes a structure(stack) with its members.
@@ -18,14 +18,14 @@
  */
 t_stack	*create_stack(void)
 {
-	t_stack	*stack;
+	t_stack	*new_stack;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
+	new_stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!new_stack)
 		error_exit();
-	stack->top_node = NULL;
-	stack->total_nodes = 0;
-	return (stack);
+	new_stack->top_node = NULL;
+	new_stack->total_nodes = 0;
+	return (new_stack);
 }
 
 /**
