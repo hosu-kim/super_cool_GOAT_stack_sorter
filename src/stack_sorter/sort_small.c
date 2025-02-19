@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/19 18:18:39 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/19 18:31:36 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	sort_three(t_stack *stack_a)
 
 /**
  * @brief sorting four or five integers.
- * @note find_min_position <- sort_utils.c
+ * @note find_min_position()<-sort_utils.c
  */
 void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 {
