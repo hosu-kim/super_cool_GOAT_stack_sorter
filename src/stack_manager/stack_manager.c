@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/19 18:24:04 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/19 19:04:33 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,36 +45,36 @@ void	insert_number_into_stack(t_stack *stack, int new_number)
 	stack->total_nodes++;
 }
 
-int	extract_head_number(t_stack *stack)
+int	extract_top_node_and_number(t_stack *stack)
 {
-	t_node	*temp;
-	int		number;
+	t_node	*temp_top_node;
+	int		temp_top_node_number;
 
 	if (stack->total_nodes == 0)
 		error_exit();
-	temp = stack->top_node;
-	number = temp->stored_number;
-	stack->top_node = temp->next_node;
-	free(temp);
+	temp_top_node = stack->top_node;
+	temp_top_node_number = temp_top_node->stored_number;
+	stack->top_node = temp_top_node->next_node;
+	free(temp_top_node);
 	stack->total_nodes--;
-	return (number);
+	return (temp_top_node_number);
 }
 
-void	print_stack_a(t_stack *stack_a)
-{
-	t_node	*current_node;
-
-	write(1, "\nThe provided numbers are sorted in ascending order: ", 52);
-	current_node = stack_a->top_node;
-	while (current_node)
-	{
-		ft_putnbr(current_node->stored_number);
-		if (current_node->next_node)
-			write(1, " ", 1);
-		current_node = current_node->next_node;
-	}
-	write(1, "\n\n", 2);
-}
+// void	print_stack_a(t_stack *stack_a)
+// {
+// 	t_node	*current_node;
+//
+// 	write(1, "\nThe provided numbers are sorted in ascending order: ", 52);
+// 	current_node = stack_a->top_node;
+// 	while (current_node)
+// 	{
+// 		ft_putnbr(current_node->stored_number);
+// 		if (current_node->next_node)
+// 			write(1, " ", 1);
+// 		current_node = current_node->next_node;
+// 	}
+// 	write(1, "\n\n", 2);
+// }
 
 /**
  * @brief Safely clears and frees memory for two stacks
@@ -86,24 +86,24 @@ void	print_stack_a(t_stack *stack_a)
  */
 void	free_stacks(t_stack *stack_a, t_stack *stack_b)
 {
-	t_node	*current;
-	t_node	*next;
+	t_node	*current_node;
+	t_node	*next_node;
 
 	if (!stack_a || !stack_b)
 		return ;
-	current = stack_a->top_node;
-	while (current)
+	current_node = stack_a->top_node;
+	while (current_node)
 	{
-		next = current->next_node;
-		free(current);
-		current = next;
+		next_node = current_node->next_node;
+		free(current_node);
+		current_node = next_node;
 	}
-	current = stack_b->top_node;
-	while (current)
+	current_node = stack_b->top_node;
+	while (current_node)
 	{
-		next = current->next_node;
-		free(current);
-		current = next;
+		next_node = current_node->next_node;
+		free(current_node);
+		current_node = next_node;
 	}
 	free(stack_a);
 	free(stack_b);

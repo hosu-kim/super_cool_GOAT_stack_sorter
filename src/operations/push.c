@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_operations.c                                  :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:42:41 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 20:05:35 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/19 18:50:51 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	push_node_from_b_to_a(t_stack *stack_a, t_stack *stack_b)
 
 	if (stack_b->total_nodes == 0)
 		return ;
-	number = extract_head_number(stack_b);
+	number = extract_top_node_and_number(stack_b);
 	insert_number_into_stack(stack_a, number);
 	write(1, "pa\n", 3);
 }
@@ -31,7 +31,7 @@ void	push_node_from_a_to_b(t_stack *stack_a, t_stack *stack_b)
 
 	if (stack_a->total_nodes == 0)
 		return ;
-	number = extract_head_number(stack_a);
+	number = extract_top_node_and_number(stack_a);
 	insert_number_into_stack(stack_b, number);
 	write(1, "pb\n", 3);
 }
