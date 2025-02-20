@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:59:20 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/19 18:55:41 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/20 17:42:27 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	swap_head_and_second_node(t_stack *stack)
 {
 	t_node	*head;
 	t_node	*second_node;
-	int		temp;
+	int		temp_head;
 
 	if (stack->total_nodes < 2)
 		return ;
 	head = stack->top_node;
 	second_node = head->next_node;
-	temp = head->stored_number;
+	temp_head = head->stored_number;
 	head->stored_number = second_node->stored_number;
-	second_node->stored_number = temp;
+	second_node->stored_number = temp_head;
 }
 
 void	swap_in_a(t_stack *stack_a)

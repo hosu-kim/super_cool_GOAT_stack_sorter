@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/19 19:03:29 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/20 17:33:01 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b);
 
 /* Stack Analysis Utils */
 t_range	get_stack_range(t_stack *stack);
-int		find_min_position(t_stack *stack);
+int		find_position_of_minimum(t_stack *stack);
 int		find_max_position(t_stack *stack);
 int		get_target_position(t_stack *stack, int target_num);
 

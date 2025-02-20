@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:30:03 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/19 18:55:41 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/20 17:36:47 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,47 @@
 
 t_range	get_stack_range(t_stack *stack)
 {
-	t_range	range;
+	t_range	number_range;
 	t_node	*current_node;
 
 	if (!stack || !stack->top_node)
 	{
-		range.min = 0;
-		range.max = 0;
-		return (range);
+		number_range.min = 0;
+		number_range.max = 0;
+		return (number_range);
 	}
-	range.min = stack->top_node->stored_number;
-	range.max = stack->top_node->stored_number;
+	number_range.min = stack->top_node->stored_number;
+	number_range.max = stack->top_node->stored_number;
 	current_node = stack->top_node->next_node;
 	while (current_node)
 	{
-		if (current_node->stored_number < range.min)
-			range.min = current_node->stored_number;
-		if (current_node->stored_number > range.max)
-			range.max = current_node->stored_number;
+		if (number_range.min > current_node->stored_number)
+			number_range.min = current_node->stored_number;
+		if (number_range.max < current_node->stored_number)
+			number_range.max = current_node->stored_number;
 		current_node = current_node->next_node;
 	}
-	return (range);
+	return (number_range);
 }
 
-int	find_min_position(t_stack *stack)
+int	find_position_of_minimum(t_stack *stack)
 {
 	t_node	*current_node;
-	int		min;
+	int		minimum_number;
 	int		position;
 	int		min_position;
 
 	if (!stack || !stack->top_node)
 		return (0);
-	min = stack->top_node->stored_number;
+	minimum_number = stack->top_node->stored_number;
 	current_node = stack->top_node->next_node;
 	position = 2;
 	min_position = 1;
 	while (current_node)
 	{
-		if (current_node->stored_number < min)
+		if (current_node->stored_number < minimum_number)
 		{
-			min = current_node->stored_number;
+			minimum_number = current_node->stored_number;
 			min_position = position;
 		}
 		current_node = current_node->next_node;
