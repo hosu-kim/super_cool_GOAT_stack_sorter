@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:30:03 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/20 17:36:47 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/20 17:47:27 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,26 @@ int	find_position_of_minimum(t_stack *stack)
 {
 	t_node	*current_node;
 	int		minimum_number;
-	int		position;
-	int		min_position;
+	int		current_position;
+	int		position_of_minumum;
 
 	if (!stack || !stack->top_node)
 		return (0);
 	minimum_number = stack->top_node->stored_number;
 	current_node = stack->top_node->next_node;
-	position = 2;
-	min_position = 1;
+	current_position = 2;
+	position_of_minumum = 1;
 	while (current_node)
 	{
 		if (current_node->stored_number < minimum_number)
 		{
 			minimum_number = current_node->stored_number;
-			min_position = position;
+			position_of_minumum = current_position;
 		}
 		current_node = current_node->next_node;
-		position++;
+		current_position++;
 	}
-	return (min_position);
+	return (position_of_minumum);
 }
 
 int	find_max_position(t_stack *stack)
