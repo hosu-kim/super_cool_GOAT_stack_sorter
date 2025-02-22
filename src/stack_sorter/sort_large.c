@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/19 18:55:41 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/22 17:46:42 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	sort_back_to_a(t_stack *stack_a, t_stack *stack_b)
 
 	while (stack_b->total_nodes > 0)
 	{
-		max_position = find_max_position(stack_b);
+		max_position = find_position_of_maximum(stack_b);
 		moves = get_optimal_moves(max_position, stack_b->total_nodes);
 		while (moves > 0)
 		{

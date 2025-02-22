@@ -6,21 +6,21 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/20 17:33:01 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/22 18:13:14 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
 // ex. stack_a = {2, 1}
-void	sort_two(t_stack *stack_a)
+void	sort_two_numbers(t_stack *stack_a)
 {
-	int	first;
-	int	second;
+	int	first_number;
+	int	second_number;
 
-	first = stack_a->top_node->stored_number;
-	second = stack_a->top_node->next_node->stored_number;
-	if (first > second)
+	first_number = stack_a->top_node->stored_number;
+	second_number = stack_a->top_node->next_node->stored_number;
+	if (first_number > second_number)
 		swap_in_a(stack_a);
 }
 
@@ -31,7 +31,7 @@ void	sort_two(t_stack *stack_a)
 	case 4. stack_a = {1, 3, 2}
 	case 5. stack_a = {3, 2, 1}
 */
-void	sort_three(t_stack *stack_a)
+void	sort_three_numbers(t_stack *stack_a)
 {
 	int	first;
 	int	second;
@@ -79,7 +79,7 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 		}
 		push_node_from_a_to_b(stack_a, stack_b);
 	}
-	sort_three(stack_a);
+	sort_three_numbers(stack_a);
 	while (stack_b->total_nodes > 0)
 		push_node_from_b_to_a(stack_a, stack_b);
 }

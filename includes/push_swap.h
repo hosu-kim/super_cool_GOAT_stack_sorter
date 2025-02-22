@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/20 17:33:01 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/22 18:05:55 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ void	reverse_both(t_stack *stack_a, t_stack *stack_b);
 void	sort_stacks(t_stack *stack_a, t_stack *stack_b);
 
 /* Size-specific Sorting */
-void	sort_two(t_stack *stack_a);
-void	sort_three(t_stack *stack_a);
+void	sort_two_numbers(t_stack *stack_a);
+void	sort_three_numbers(t_stack *stack_a);
 void	sort_four_five(t_stack *stack_a, t_stack *stack_b);
 void	sort_large(t_stack *stack_a, t_stack *stack_b);
 
@@ -96,7 +96,7 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b);
 /* Stack Analysis Utils */
 t_range	get_stack_range(t_stack *stack);
 int		find_position_of_minimum(t_stack *stack);
-int		find_max_position(t_stack *stack);
+int		find_position_of_maximum(t_stack *stack);
 int		get_target_position(t_stack *stack, int target_num);
 
 /* General Utils*/
