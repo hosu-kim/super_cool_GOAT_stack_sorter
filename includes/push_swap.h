@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/22 18:05:55 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/23 20:01:07 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	rotate_both(t_stack *stack_a, t_stack *stack_b);
 
 // Reverse rotate the bottom element of one stack or both to the top_node.
 void	reverse(t_stack *stack);
-void	reverse_tail_to_head_a(t_stack *stack_a);
+void	reverse_in_a(t_stack *stack_a);
 void	reverse_tail_to_head_b(t_stack *stack_b);
 void	reverse_both(t_stack *stack_a, t_stack *stack_b);
 

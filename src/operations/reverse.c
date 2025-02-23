@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:03:36 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/18 21:02:58 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/23 20:01:07 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	reverse(t_stack *stack)
 	stack->top_node = tail;
 }
 
-void	reverse_tail_to_head_a(t_stack *stack_a)
+void	reverse_in_a(t_stack *stack_a)
 {
 	reverse(stack_a);
 	write(1, "rra\n", 4);
