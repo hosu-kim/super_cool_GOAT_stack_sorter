@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/23 20:06:39 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/23 20:07:36 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static int	find_minimum_moves(int position_of_node, int stack_size)
 	return (stack_size - position_of_node + 1);
 }
 
-static void	handle_stack_rotation(t_stack *stack_a, int position)
+static void	handle_stack_rotation(t_stack *stack_a, int position_of_node)
 {
-	if (position <= stack_a->total_nodes / 2)
+	if (position_of_node <= stack_a->total_nodes / 2)
 		rotate_in_a(stack_a);
 	else
 		reverse_in_a(stack_a);
