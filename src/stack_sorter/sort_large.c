@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/22 17:46:42 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/23 18:27:03 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b, t_range chunk)
 		}
 		else
 		{
-			position = get_target_position(stack_a, chunk.min);
+			position = get_position_of_target_num(stack_a, chunk.min);
 			if (position > stack_a->total_nodes)
 				position = stack_a->total_nodes;
 			handle_stack_rotation(stack_a, position);
@@ -84,7 +84,7 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b)
 	int		chunks;
 	int		i;
 
-	range = get_stack_range(stack_a);
+	range = get_number_range(stack_a);
 	if (stack_a->total_nodes <= 100)
 		chunks = 5;
 	else
