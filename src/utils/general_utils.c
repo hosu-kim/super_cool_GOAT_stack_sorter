@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/19 18:55:41 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/24 23:08:49 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	error_exit(void)
 {
