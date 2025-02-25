@@ -6,20 +6,22 @@
 #    By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/26 22:12:47 by hoskim            #+#    #+#              #
-#    Updated: 2025/02/25 18:54:08 by hoskim           ###   ########seoul.kr   #
+#    Updated: 2025/02/25 19:22:34 by hoskim           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I$(sheell pwd)/includes
+INCLUDES = -I$(shell pwd)/includes
 
 SRCS_DIR = src
 MAIN_DIR = $(SRCS_DIR)/main
 OPS_DIR = $(SRCS_DIR)/operations
-SORTER_DIR = $(SRCS_DIR)/stack_sorter
 STACK_MANAGER_DIR = $(SRCS_DIR)/stack_manager
+STACK_SORTER_DIR = $(SRCS_DIR)/stack_sorter
+ALGORITHMS_DIR = $(STACK_SORTER_DIR)/algorithms
+STACK_SORTER_UTILS_DIR = $(STACK_SORTER_DIR)/stack_sorter_utils
 UTILS_DIR = $(SRCS_DIR)/utils
 
 SRCS = $(MAIN_DIR)/push_swap.c \
@@ -28,10 +30,12 @@ SRCS = $(MAIN_DIR)/push_swap.c \
 		$(OPS_DIR)/rotate.c \
 		$(OPS_DIR)/swap.c \
 		$(STACK_MANAGER_DIR)/stack_manager.c \
-		$(SORTER_DIR)/sort_large.c \
-		$(SORTER_DIR)/sort_small.c \
-		$(SORTER_DIR)/sort_utils.c \
-		$(SORTER_DIR)/stack_sorter.c \
+		$(STACK_SORTER_DIR)/stack_sorter.c \
+		$(ALGORITHMS_DIR)/sort_large.c \
+		$(ALGORITHMS_DIR)/sort_small.c \
+		$(STACK_SORTER_UTILS_DIR)/stack_move_utils.c \
+		$(STACK_SORTER_UTILS_DIR)/stack_position_utils.c \
+		$(STACK_SORTER_UTILS_DIR)/stack_range_utils.c \
 		$(UTILS_DIR)/general_utils.c
 
 OBJS = $(SRCS:.c=.o)

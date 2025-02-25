@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/25 19:00:10 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 19:16:40 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@
 ** ========================= STRUCTURES =========================
  */
 
-// Structure for a single node in a stack
-typedef struct s_stack
-{
-	t_node	*top_node;
-	int		total_nodes;
-}	t_stack;
-
 // Structure representing a stack
 typedef struct s_node
 {
 	int				stored_number;
 	struct s_node	*next_node;
 }	t_node;
+
+// Structure for a single node in a stack
+typedef struct s_stack
+{
+	t_node	*top_node;
+	int		total_nodes;
+}	t_stack;
 
 // Structure for range values
 typedef struct s_range

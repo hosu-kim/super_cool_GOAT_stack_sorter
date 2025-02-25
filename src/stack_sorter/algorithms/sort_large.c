@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/25 18:55:34 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 19:26:12 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ static void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b, t_range chunk)
 {
 	int	target_num;
 	int	position_of_target_num;
+	int	rotation_count;
 
-	while (stack_a->total_nodes > 0)
+	rotation_count = 0;
+	while (stack_a->total_nodes > 0 && rotation_count < stack_a->total_nodes)
 	{
 		target_num = stack_a->top_node->stored_number;
 		if (target_num >= chunk.min && target_num <= chunk.max)
@@ -29,10 +31,11 @@ static void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b, t_range chunk)
 		}
 		else
 		{
-			position_of_target_num = get_position_of_target_num(stack_a, chunk.min);
+			position_of_target_num = find_position_of_target_num(stack_a, chunk.min);
 			if (position_of_target_num > stack_a->total_nodes)
 				position_of_target_num = stack_a->total_nodes;
 			move_node_to_top(stack_a, position_of_target_num);
+			rotation_count++;
 		}
 	}
 }
@@ -45,7 +48,7 @@ static void	sort_back_to_a(t_stack *stack_a, t_stack *stack_b)
 	while (stack_b->total_nodes > 0)
 	{
 		position_of_maximum = find_position_of_maximum(stack_b);
-		min_moves_to_top = find_min_moves_to_get_node(position_of_maximum, stack_b->total_nodes);
+		min_moves_to_top = find_min_moves_to_head(position_of_maximum, stack_b->total_nodes);
 		while (min_moves_to_top > 0)
 		{
 			if (position_of_maximum <= stack_b->total_nodes / 2)
