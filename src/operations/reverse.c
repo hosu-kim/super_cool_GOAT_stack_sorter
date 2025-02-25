@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:03:36 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/23 20:01:07 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 18:55:08 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void	reverse(t_stack *stack)
 {

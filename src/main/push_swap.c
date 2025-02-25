@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 00:30:06 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/24 23:08:03 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 18:54:55 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 /**
  * @brief Main function of push_swap program

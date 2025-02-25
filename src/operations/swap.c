@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:59:20 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/20 17:42:27 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 18:55:18 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 // Swap 1st and 2nd elements of a stack
 // ex.) 1 2 3 4 => 2 1 3 4

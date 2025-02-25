@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 03:33:34 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/19 18:07:59 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 18:55:13 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void	rotate_head_to_tail(t_stack *stack)
 {

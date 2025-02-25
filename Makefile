@@ -6,14 +6,14 @@
 #    By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/26 22:12:47 by hoskim            #+#    #+#              #
-#    Updated: 2025/02/19 18:21:24 by hoskim           ###   ########seoul.kr   #
+#    Updated: 2025/02/25 18:54:08 by hoskim           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I./includes
+INCLUDES = -I$(sheell pwd)/includes
 
 SRCS_DIR = src
 MAIN_DIR = $(SRCS_DIR)/main

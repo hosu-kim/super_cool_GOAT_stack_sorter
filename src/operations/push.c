@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:42:41 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/19 18:50:51 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 18:55:04 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 // push 1st element of stack A to 1st place of stack B
 void	push_node_from_b_to_a(t_stack *stack_a, t_stack *stack_b)
@@ -25,7 +25,7 @@ void	push_node_from_b_to_a(t_stack *stack_a, t_stack *stack_b)
 }
 
 // push 1st element of stack B to 1st place of stack A
-void	push_node_from_a_to_b(t_stack *stack_a, t_stack *stack_b)
+void	push_head_from_a_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	int	number;
 

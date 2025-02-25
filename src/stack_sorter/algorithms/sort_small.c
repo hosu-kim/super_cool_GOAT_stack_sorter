@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/23 20:01:07 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 18:55:40 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 // ex. stack_a = {2, 1}
 void	sort_two_numbers(t_stack *stack_a)
@@ -71,13 +71,10 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 		target_position = find_position_of_minimum(stack_a);
 		while (target_position != 1)
 		{
-			if (target_position <= stack_a->total_nodes / 2)
-				rotate_in_a(stack_a);
-			else
-				reverse_in_a(stack_a);
+			move_node_to_top(stack_a, target_position);
 			target_position = find_position_of_minimum(stack_a);
 		}
-		push_node_from_a_to_b(stack_a, stack_b);
+		push_head_from_a_to_b(stack_a, stack_b);
 	}
 	sort_three_numbers(stack_a);
 	while (stack_b->total_nodes > 0)

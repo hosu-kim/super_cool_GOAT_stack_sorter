@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:09:58 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/22 18:05:55 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 18:54:46 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void	sort_stacks(t_stack *stack_a, t_stack *stack_b)
 {

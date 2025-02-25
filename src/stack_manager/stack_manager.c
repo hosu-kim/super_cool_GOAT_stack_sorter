@@ -6,11 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/20 17:42:42 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 18:55:23 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 /**
  * @brief Initializes a structure(stack) with its members.

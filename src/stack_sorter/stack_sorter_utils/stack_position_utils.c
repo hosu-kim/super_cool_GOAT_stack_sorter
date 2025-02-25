@@ -1,41 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   stack_position_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:30:03 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/23 20:06:08 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/25 19:00:25 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
-
-t_range	get_number_range(t_stack *stack)
-{
-	t_range	number_range;
-	t_node	*current_node;
-
-	if (!stack || !stack->top_node)
-	{
-		number_range.min = 0;
-		number_range.max = 0;
-		return (number_range);
-	}
-	number_range.min = stack->top_node->stored_number;
-	number_range.max = stack->top_node->stored_number;
-	current_node = stack->top_node->next_node;
-	while (current_node)
-	{
-		if (current_node->stored_number < number_range.min)
-			number_range.min = current_node->stored_number;
-		if (current_node->stored_number > number_range.max)
-			number_range.max = current_node->stored_number;
-		current_node = current_node->next_node;
-	}
-	return (number_range);
-}
+#include "push_swap.h"
 
 int	find_position_of_minimum(t_stack *stack)
 {
