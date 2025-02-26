@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/26 16:50:38 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/26 19:39:31 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int		find_min_moves_to_top(int position_of_node, int stack_size);
 void	move_target_node_to_top(t_stack *stack_a, int position_of_node);
 int		find_position_of_minimum(t_stack *stack);
 int		find_position_of_maximum(t_stack *stack);
-int		find_position_of_provided_num(t_stack *stack, int target_num);
+int		find_position_of_num_in_chunk_range(t_stack *stack, t_range chunk);
 t_range	find_number_range(t_stack *stack);
 
 /* General Utils*/

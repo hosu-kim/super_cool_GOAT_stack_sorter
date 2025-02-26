@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/26 18:59:20 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/26 21:24:19 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	move_chunk_with_pivot_to_b(t_stack *a, t_stack *b, t_range chunk)
 {
 	int	current_number;
-	int	position_of_chunk_min;
+	int	position_of_num_in_chunk;
 	int	performed_rotations;
 
 	performed_rotations = 0;
@@ -30,10 +30,11 @@ static void	move_chunk_with_pivot_to_b(t_stack *a, t_stack *b, t_range chunk)
 		}
 		else
 		{
-			position_of_chunk_min = find_position_of_provided_num(a, chunk.min);
-			if (position_of_chunk_min == -1)
+			position_of_num_in_chunk = \
+								find_position_of_num_in_chunk_range(a, chunk);
+			if (position_of_num_in_chunk == -1)
 				break ;
-			move_target_node_to_top(a, position_of_chunk_min);
+			move_target_node_to_top(a, position_of_num_in_chunk);
 			performed_rotations++;
 		}
 	}
@@ -65,24 +66,24 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b)
 {
 	t_range	range;
 	t_range	chunk;
-	int		chunk_size;
-	int		chunks;
+	int		how_many_nums_in_chunk;
+	int		num_of_chunks;
 	int		i;
 
 	range = find_number_range(stack_a);
 	if (stack_a->total_nodes <= 100)
-		chunks = 5;
+		num_of_chunks = 5;
 	else
-		chunks = 11;
-	chunk_size = (range.max - range.min + 1) / chunks + 1;
+		num_of_chunks = 11;
+	how_many_nums_in_chunk = (range.max - range.min + 1) / num_of_chunks + 1;
 	i = 0;
-	while (i < chunks)
+	while (i < num_of_chunks)
 	{
-		chunk.min = range.min + (i * chunk_size);
-		chunk.max = chunk.min + chunk_size - 1;
-		if (i == chunks - 1)
+		chunk.min = range.min + (i * how_many_nums_in_chunk);
+		chunk.max = chunk.min + how_many_nums_in_chunk - 1;
+		if (i == num_of_chunks - 1)
 			chunk.max = range.max;
-		move_sort_chunk_number_in_b(stack_a, stack_b, chunk);
+		move_chunk_with_pivot_to_b(stack_a, stack_b, chunk);
 		i++;
 	}
 	sort_back_to_a(stack_a, stack_b);
