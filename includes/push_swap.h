@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/25 19:16:40 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/26 16:50:38 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	free_stacks(t_stack *stack_a, t_stack *stack_b);
 /* Stack Operation Commands */
 // Push the head node to another stack.
 void	push_node_from_b_to_a(t_stack *stack_a, t_stack *stack_b);
-void	push_head_from_a_to_b(t_stack *stack_a, t_stack *stack_b);
+void	push_top_from_a_to_b(t_stack *stack_a, t_stack *stack_b);
 
 // Swap the head node and the second node of the body 
 // (ss: done in the both stacks)
@@ -94,11 +94,11 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b);
 */
 
 /* Stack Analysis Utils */
-int		find_min_moves_to_head(int position_of_node, int stack_size);
-void	move_node_to_top(t_stack *stack_a, int position_of_node);
+int		find_min_moves_to_top(int position_of_node, int stack_size);
+void	move_target_node_to_top(t_stack *stack_a, int position_of_node);
 int		find_position_of_minimum(t_stack *stack);
 int		find_position_of_maximum(t_stack *stack);
-int		find_position_of_target_num(t_stack *stack, int target_num);
+int		find_position_of_provided_num(t_stack *stack, int target_num);
 t_range	find_number_range(t_stack *stack);
 
 /* General Utils*/
