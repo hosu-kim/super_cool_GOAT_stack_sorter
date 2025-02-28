@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:40:26 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 17:51:35 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 20:11:03 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,7 +219,7 @@ void	sort_three_numbers(t_stack *stack_a);
  * @param stack_a The primary stack to sort
  * @param stack_b The auxiliary stack
  */
-void	sort_four_five(t_stack *stack_a, t_stack *stack_b);
+void	sort_four_or_five(t_stack *stack_a, t_stack *stack_b);
 
 /**
  * @brief Sorts a stack with more than 5 numbers using an optimized algorithm

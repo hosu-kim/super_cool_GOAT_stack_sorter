@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 14:36:13 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 19:52:38 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 /**
  * @brief Initializes a structure(stack) with its members.
- * @note size of t_stack: 12 bytes {pointer(8 bytes in x64) and int}
+ * @note size of t_stack: 12 bytes {pointer(8 bytes in x64) an int}
+ * 
+ * Creates a new stack structure, allocates memory for it, initializes
+ * its members to default values, and returns a pointer to it.
+ * Exits with an error if memory allocation fails.
+ * 
+ * @return t_stack* Pointer to the newly created stack
  */
 t_stack	*create_stack(void)
 {
@@ -29,8 +35,16 @@ t_stack	*create_stack(void)
 }
 
 /**
- * @brief adds a new node into the stack
- * 		  and allocates the provided number to stored_number.
+ * @breif adds a new node into the stack
+ *        and allocates the provided number to stored_number.
+ * 
+ * Creates a new node with the given number, places it at the top of the stack,
+ * and updates the stack's total node count. Exits with an error if memory
+ * allocation fails.
+ * 
+ * @param stack The stack to which the new node will be added
+ * @param new_number The integer value to be stored in the new node
+ * @return void
  */
 void	insert_number_into_stack(t_stack *stack, int new_number)
 {
@@ -45,6 +59,17 @@ void	insert_number_into_stack(t_stack *stack, int new_number)
 	stack->total_nodes++;
 }
 
+/**
+ * @brief Removes the top node from the stack and returns its value
+ * 
+ * This function removes the top node from the stack, decrements the stack's
+ * total node count, frees the memory allocated for the removed node,
+ * and returns the iteger value that was stored in it.
+ * Exits with an error if the stack is empty.
+ * 
+ * @param stack The stack form which to remove the top node
+ * @return int The value stored in the removed top node
+ */
 int	extract_top_node_and_remove(t_stack *stack)
 {
 	t_node	*temp_top_node;
@@ -60,22 +85,6 @@ int	extract_top_node_and_remove(t_stack *stack)
 	return (temp_top_node_number);
 }
 
-// void	print_stack_a(t_stack *stack_a)
-// {
-// 	t_node	*current_node;
-//
-// 	write(1, "\nThe provided numbers are sorted in ascending order: ", 52);
-// 	current_node = stack_a->top_node;
-// 	while (current_node)
-// 	{
-// 		ft_putnbr(current_node->stored_number);
-// 		if (current_node->next_node)
-// 			write(1, " ", 1);
-// 		current_node = current_node->next_node;
-// 	}
-// 	write(1, "\n\n", 2);
-// }
-
 /**
  * @brief Safely clears and frees memory for two stacks
  * 
@@ -83,6 +92,14 @@ int	extract_top_node_and_remove(t_stack *stack)
  * -# Checks for NULL pointers
  * -# Frees all nodes in each stack
  * -# Frees the stack structures themselves
+ * 
+ * interates through all nodes in both stacks, freeing each node,
+ * and then frees the stack structures themselves. If either stack
+ * pointer is NULL, the function returns without attempting to free.
+ * 
+ * @param stack_a The first stack to be freed
+ * @param stack_b The second stack to be freed
+ * @return void
  */
 void	free_stacks(t_stack *stack_a, t_stack *stack_b)
 {

@@ -6,12 +6,24 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 17:51:35 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 21:02:54 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Moves numbers within a specific range (chunk) from stack A to B
+ * 
+ * This function transfers elements from stack A to stack B that fall within
+ * the specified chunk range. Additionally, it optimizes stack B by rotating
+ * smaller elements within the chunk to the bottom, preparing for later sorting.
+ * 
+ * @param a The source stack A from which elements are transferred
+ * @param b The destination stack B to which elements are transferred
+ * @param chunk The range defining the minimum and maximum values to be moved
+ * @return void
+ */
 static void	move_chunk_with_pivot_to_b(t_stack *a, t_stack *b, t_range chunk)
 {
 	int	current_number;
@@ -40,6 +52,18 @@ static void	move_chunk_with_pivot_to_b(t_stack *a, t_stack *b, t_range chunk)
 	}
 }
 
+/**
+ * @brief Sorts elements from stack B back into stack A in order
+ * 
+ * this function transfers elements from stack B back to stack A in
+ * descending order by repeatedly finding the maximum value in stack B,
+ * moving it to the top position with minimal operations, and pushing
+ * it to stack A.
+ * 
+ * @param stack_a The destination stack for the sorted elements
+ * @param stack_b The source stack containing elements to be sorted
+ * @return void
+ */
 static void	sort_back_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	int	position_of_maximum;
@@ -62,6 +86,20 @@ static void	sort_back_to_a(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+/**
+ * @brief Main function for sorting large arrays using a chunk-bassed approach
+ * 
+ * This function implements a sorting algorithm optimized for large data sets:
+ * -# Divides the number range into chunks
+ * (5 chunks for <= 100 elements, 11 chunks for >100)
+ * -# Transfers elements from stack A to stack B by chunks,
+ *    partial pre-sorting
+ * -# Sorts all elements back form stack B to stack A in the correct order
+ * 
+ * @param stack_a The main stack containing unsorted elements
+ * @param stack_b The auxiliary stack used for sorting
+ * @return void
+ */
 void	sort_large(t_stack *stack_a, t_stack *stack_b)
 {
 	t_range	range;

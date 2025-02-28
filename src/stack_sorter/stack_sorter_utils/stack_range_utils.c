@@ -12,6 +12,19 @@
 
 #include "push_swap.h"
 
+/**
+ * @brief Finds the minimum and maximum values in a stack
+ * 
+ * This function traverses the entire stack once to determine both the
+ * smallest and largest values stored in any nodes. These values are returned
+ * as a t_range structure containing the min and max fields.
+ * 
+ * @param stack The stack to analyze
+ * @return t_range A structure containing:
+ *                 - min: The minimum value found in the stack
+ *                 - max: The maximum value found in the stack
+ *                 If the stack is empty or NULL, both min and max are set to 0
+ */
 t_range	find_number_range(t_stack *stack)
 {
 	t_range	number_range;
