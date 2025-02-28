@@ -6,13 +6,13 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:03:36 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/25 18:55:08 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 14:49:57 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse(t_stack *stack)
+void	reverse_tail_to_head(t_stack *stack)
 {
 	t_node	*before_tail;
 	t_node	*tail;
@@ -28,15 +28,15 @@ void	reverse(t_stack *stack)
 	stack->top_node = tail;
 }
 
-void	reverse_in_a(t_stack *stack_a)
+void	reverse_tail_to_head_in_a(t_stack *stack_a)
 {
-	reverse(stack_a);
+	reverse_tail_to_head(stack_a);
 	write(1, "rra\n", 4);
 }
 
-void	reverse_tail_to_head_b(t_stack *stack_b)
+void	reverse_tail_to_head_in_b(t_stack *stack_b)
 {
-	reverse(stack_b);
+	reverse_tail_to_head(stack_b);
 	write(1, "rrb\n", 4);
 }
 
@@ -44,8 +44,8 @@ void	reverse_both(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->total_nodes >= 2 && stack_b->total_nodes >= 2)
 	{
-		reverse(stack_a);
-		reverse(stack_b);
+		reverse_tail_to_head(stack_a);
+		reverse_tail_to_head(stack_b);
 		write(1, "rrr\n", 4);
 	}
 }

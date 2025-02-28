@@ -6,12 +6,11 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/25 19:26:12 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 14:49:57 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b, t_range chunk)
 {
@@ -54,7 +53,7 @@ static void	sort_back_to_a(t_stack *stack_a, t_stack *stack_b)
 			if (position_of_maximum <= stack_b->total_nodes / 2)
 				rotate_in_b(stack_b);
 			else
-				reverse_tail_to_head_b(stack_b);
+				reverse_tail_to_head_in_b(stack_b);
 			min_moves_to_top--;
 		}
 		push_node_from_b_to_a(stack_a, stack_b);

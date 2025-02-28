@@ -24,5 +24,5 @@ void	move_node_to_top(t_stack *stack_a, int position_of_node)
 	if (position_of_node <= stack_a->total_nodes / 2)
 		rotate_in_a(stack_a);
 	else
-		reverse_in_a(stack_a);
+		reverse_tail_to_head_in_a(stack_a);
 }
