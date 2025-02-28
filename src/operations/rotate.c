@@ -6,11 +6,18 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 03:33:34 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/25 18:55:13 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 17:59:01 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/**
+ * @brief Performs a rotation on a stack
+ * 
+ * This function moves the top element of the stack to the bottom position.
+ * 
+ */
 
 void	rotate_head_to_tail(t_stack *stack)
 {

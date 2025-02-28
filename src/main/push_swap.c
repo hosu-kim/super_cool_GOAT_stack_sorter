@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 00:30:06 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/25 18:54:55 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 17:26:46 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,26 @@
  * @brief Main function of push_swap program
  * 
  * This program sorts integers using two stacks (A and B)
- * and a limited set of operations.
+ * and a limited set of operations as defined by the 42 project requirements.
+ * The program takes integers as command line arguments and outputs the
+ * sequence of operations needed to sort them in ascending order.
+ * 
+ * @param argc Number of command line arguments
+ * @param argv Array of command line argument strings
+ * 
+ * @return int Returns 0 on successful execution
  * 
  * @note Algorithm steps:
- * -# Initialize stacks
- * -# Insert numbers to stack A in reverse order
- * -# Check for duplicate numbers
- * -# Sort the stack if not already sorted
- * -# Clean up allocated memory
+ * -# Initialize stacks A and B
+ * -# Parse command line arguments and insert numbers into stack A 
+ *    in reverse order
+ * -# check for duplicate numbers and handle errors
+ * -# If the stack is not already sorted, apply sorting algorithm
+ * -# Clean up allocated memory before program termination
  * 
- * @warning All input numbers must be valid integers
- * @warning No duplicate numbers
+ * @warning All input numbers must be valid integers within the range of INT_MIN
+ *          to INT_MAX
+ * @warning No duplicate numbers are allowed in the input
  */
 int	main(int argc, char **argv)
 {
@@ -50,13 +59,18 @@ int	main(int argc, char **argv)
 	free_stacks(stack_a, stack_b);
 	return (0);
 }
-/* @note 
-	- function usage steps
-		1. create_stack()		     | stack_manager.c
-		2. insert_number_into_stack()| stack_manager.c
-		3. ft_atoi() 			     | general_utils.c
-		4. same_number_checker()       | general_utils.c
-		5. is_sorted()			     | general_utils.c
-		6. sort_stack() -CORE FUNC.  | sort_manager.c
-		7. free_stacks()		     | stack_manager.c
-*/
+
+/**
+ * @brief Function execution flow
+ * 
+ * The main algorithm progresses through the following function calls:
+ * -# create_stack() - Allocates and initializes stack structures
+ *    (stack_manager.c)
+ * -# insert_number_into_stack() - Adds numbers to the stack (stack_manager.c)
+ * -# ft_atoi() - Converts string arguments to integers (general_utils.c)
+ * -# same_number_checker() - Validates there are no duplicates (general_utils.c)
+ * -# is_sorted() - Checks if the stack is already in sorted order
+ *    (general_utils.c)
+ * -# sort_stacks() - Core sorting algorithm (sort_manager.c)
+ * -# free_stacks() - Deallocates memory for both stacks (stack_manager.c)
+ */

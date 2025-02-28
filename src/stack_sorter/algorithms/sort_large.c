@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 15:44:29 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 17:51:35 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	move_chunk_with_pivot_to_b(t_stack *a, t_stack *b, t_range chunk)
 		current_number = a->top_node->stored_number;
 		if (current_number >= chunk.min && current_number <= chunk.max)
 		{
-			push_top_from_a_to_b(a, b);
+			push_top_a_to_b(a, b);
 			if (b->top_node->stored_number < (chunk.min + chunk.max) / 2)
 				rotate_in_b(b);
 		}
@@ -55,10 +55,10 @@ static void	sort_back_to_a(t_stack *stack_a, t_stack *stack_b)
 			if (position_of_maximum <= stack_b->total_nodes / 2)
 				rotate_in_b(stack_b);
 			else
-				reverse_tail_to_head_in_b(stack_b);
+				reverse_in_b(stack_b);
 			min_moves_to_top--;
 		}
-		push_top_from_b_to_a(stack_a, stack_b);
+		push_top_b_to_a(stack_a, stack_b);
 	}
 }
 

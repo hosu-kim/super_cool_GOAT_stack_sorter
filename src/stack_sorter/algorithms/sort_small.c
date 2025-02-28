@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 15:44:36 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 17:51:27 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	sort_three_numbers(t_stack *stack_a)
 	else if (first > second && second < third && first > third)
 		rotate_in_a(stack_a);
 	else if (first < second && second > third && first > third)
-		reverse_tail_to_head_in_a(stack_a);
+		reverse_in_a(stack_a);
 	else if (first < second && second > third && first < third)
 	{
 		swap_in_a(stack_a);
@@ -54,7 +54,7 @@ void	sort_three_numbers(t_stack *stack_a)
 	else if (first > second && second > third)
 	{
 		swap_in_a(stack_a);
-		reverse_tail_to_head_in_a(stack_a);
+		reverse_in_a(stack_a);
 	}
 }
 
@@ -74,9 +74,9 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 			move_target_node_to_top(stack_a, target_position);
 			target_position = find_position_of_minimum(stack_a);
 		}
-		push_top_from_a_to_b(stack_a, stack_b);
+		push_top_a_to_b(stack_a, stack_b);
 	}
 	sort_three_numbers(stack_a);
 	while (stack_b->total_nodes > 0)
-		push_top_from_b_to_a(stack_a, stack_b);
+		push_top_b_to_a(stack_a, stack_b);
 }

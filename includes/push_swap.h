@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:40:26 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 16:03:50 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 17:51:35 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,18 +102,18 @@ void	free_stacks(t_stack *stack_a, t_stack *stack_b);
  */
 
 /**
- * @brief Pushes the top node from stack B to stack A (pa)
- * @param stack_a Destination stack
- * @param stack_b Source stack
- */
-void	push_top_from_b_to_a(t_stack *stack_a, t_stack *stack_b);
-
-/**
  * @brief Pushes the top node from stack B to stack A (pb)
  * @param stack_a Destination stack
  * @param stack_b Source stack
  */
-void	push_top_from_a_to_b(t_stack *stack_a, t_stack *stack_b);
+void	push_top_a_to_b(t_stack *stack_a, t_stack *stack_b);
+
+/**
+ * @brief Pushes the top node from stack B to stack A (pa)
+ * @param stack_a Destination stack
+ * @param stack_b Source stack
+ */
+void	push_top_b_to_a(t_stack *stack_a, t_stack *stack_b);
 
 /**
  * @brief Swaps the first two nodes of a stack
@@ -175,13 +175,13 @@ void	reverse_tail_to_head(t_stack *stack);
  * Reverse rotates stack A - moves bottom node to top (rra)
  * @param stack_a The stack to reverse rotate
  */
-void	reverse_tail_to_head_in_a(t_stack *stack_a);
+void	reverse_in_a(t_stack *stack_a);
 
 /**
  * @brief Reverse rotates stack B - moves bottom node to top (rrb)
  * @param stack_b The stack to reverse rotate
  */
-void	reverse_tail_to_head_in_b(t_stack *stack_b);
+void	reverse_in_b(t_stack *stack_b);
 
 /**
  * @brief Reverse rotates both stacks - moves bottom nodes to top (rrr)
@@ -195,7 +195,8 @@ void	reverse_both(t_stack *stack_a, t_stack *stack_b);
 */
 
 /**
- * @brief Main sorting function that selects appropriate algorithm based on stack size
+ * @brief Main sorting function that selects 
+ * 		  appropriate algorithm based on stack size
  * @param stack_a The primary stack containing numbers to sort
  * @param stack_b The auxiliary stack used in sorting
  */
@@ -231,13 +232,7 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b);
 ** ========================= UTILITY FUNCTIONS =========================
 */
 
-/**
- * @brief Calculates the minimum number of moves to bring a node to the top
- * @param position_of_node The position of the node in the stack
- * @param stack_size The total number of nodes in the stack
- * @return The minimum number of moves required
- */
-static void	move_chunk_with_pivot_to_b(t_stack *a, t_stack *b, t_range chunk);
+int		find_min_moves_to_top(int position_of_node, int stack_size);
 
 /**
  * @brief Moves a node a given position to the top of the stack
@@ -266,7 +261,7 @@ int		find_position_of_maximum(t_stack *stack);
  * @param target_num The value to find
  * @return The position of the node with the target value
  */
-int	find_position_of_num_in_chunk_range(t_stack *stack, t_range chunk);
+int		find_position_of_num_in_chunk_range(t_stack *stack, t_range chunk);
 
 /**
  * @brief Finds the minimum and maxmum values in a stack
