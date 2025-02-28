@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:40:26 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 15:43:11 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 16:03:50 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,14 +237,14 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b);
  * @param stack_size The total number of nodes in the stack
  * @return The minimum number of moves required
  */
-int		find_min_moves_to_head(int position_of_node, int stack_size);
+static void	move_chunk_with_pivot_to_b(t_stack *a, t_stack *b, t_range chunk);
 
 /**
  * @brief Moves a node a given position to the top of the stack
  * @param stack_a The stack to modify
  * @param position_of_node The position of the node to move
  */
-void	move_node_to_top(t_stack *stack_a, int position_of_node);
+void	move_target_node_to_top(t_stack *stack_a, int position_of_node);
 
 /**
  * brief Finds the position of the node with the minimum value
@@ -266,7 +266,7 @@ int		find_position_of_maximum(t_stack *stack);
  * @param target_num The value to find
  * @return The position of the node with the target value
  */
-int		find_position_of_target_num(t_stack *stack, int target_num);
+int	find_position_of_num_in_chunk_range(t_stack *stack, t_range chunk);
 
 /**
  * @brief Finds the minimum and maxmum values in a stack
