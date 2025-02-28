@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:42:41 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 15:44:17 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 16:19:20 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	push_top_from_b_to_a(t_stack *stack_a, t_stack *stack_b)
 	write(1, "pa\n", 3);
 }
 
-// push 1st elemeEEEEnt of stack B to 1st place of stack A
+// push 1st element of stack B to 1st place of stack A
 void	push_top_from_a_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	int	number;
