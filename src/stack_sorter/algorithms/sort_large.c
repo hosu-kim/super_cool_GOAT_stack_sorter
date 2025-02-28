@@ -6,35 +6,36 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 14:49:57 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 15:44:29 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_numbers_to_b(t_stack *stack_a, t_stack *stack_b, t_range chunk)
+static void	move_chunk_with_pivot_to_b(t_stack *a, t_stack *b, t_range chunk)
 {
-	int	target_num;
-	int	position_of_target_num;
-	int	rotation_count;
+	int	current_number;
+	int	position_of_num_in_chunk;
+	int	performed_rotations;
 
-	rotation_count = 0;
-	while (stack_a->total_nodes > 0 && rotation_count < stack_a->total_nodes)
+	performed_rotations = 0;
+	while (a->total_nodes > 0 && performed_rotations < a->total_nodes)
 	{
-		target_num = stack_a->top_node->stored_number;
-		if (target_num >= chunk.min && target_num <= chunk.max)
+		current_number = a->top_node->stored_number;
+		if (current_number >= chunk.min && current_number <= chunk.max)
 		{
-			push_head_from_a_to_b(stack_a, stack_b);
-			if (stack_b->top_node->stored_number < (chunk.min + chunk.max) / 2)
-				rotate_in_b(stack_b);
+			push_top_from_a_to_b(a, b);
+			if (b->top_node->stored_number < (chunk.min + chunk.max) / 2)
+				rotate_in_b(b);
 		}
 		else
 		{
-			position_of_target_num = find_position_of_target_num(stack_a, chunk.min);
-			if (position_of_target_num > stack_a->total_nodes)
-				position_of_target_num = stack_a->total_nodes;
-			move_node_to_top(stack_a, position_of_target_num);
-			rotation_count++;
+			position_of_num_in_chunk = \
+								find_position_of_num_in_chunk_range(a, chunk);
+			if (position_of_num_in_chunk == -1)
+				break ;
+			move_target_node_to_top(a, position_of_num_in_chunk);
+			performed_rotations++;
 		}
 	}
 }
@@ -47,7 +48,8 @@ static void	sort_back_to_a(t_stack *stack_a, t_stack *stack_b)
 	while (stack_b->total_nodes > 0)
 	{
 		position_of_maximum = find_position_of_maximum(stack_b);
-		min_moves_to_top = find_min_moves_to_head(position_of_maximum, stack_b->total_nodes);
+		min_moves_to_top = \
+			find_min_moves_to_top(position_of_maximum, stack_b->total_nodes);
 		while (min_moves_to_top > 0)
 		{
 			if (position_of_maximum <= stack_b->total_nodes / 2)
@@ -56,7 +58,7 @@ static void	sort_back_to_a(t_stack *stack_a, t_stack *stack_b)
 				reverse_tail_to_head_in_b(stack_b);
 			min_moves_to_top--;
 		}
-		push_node_from_b_to_a(stack_a, stack_b);
+		push_top_from_b_to_a(stack_a, stack_b);
 	}
 }
 
@@ -64,24 +66,24 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b)
 {
 	t_range	range;
 	t_range	chunk;
-	int		chunk_size;
-	int		chunks;
+	int		how_many_nums_in_chunk;
+	int		num_of_chunks;
 	int		i;
 
 	range = find_number_range(stack_a);
 	if (stack_a->total_nodes <= 100)
-		chunks = 5;
+		num_of_chunks = 5;
 	else
-		chunks = 11;
-	chunk_size = (range.max - range.min + 1) / chunks + 1;
+		num_of_chunks = 11;
+	how_many_nums_in_chunk = (range.max - range.min + 1) / num_of_chunks + 1;
 	i = 0;
-	while (i < chunks)
+	while (i < num_of_chunks)
 	{
-		chunk.min = range.min + (i * chunk_size);
-		chunk.max = chunk.min + chunk_size - 1;
-		if (i == chunks - 1)
+		chunk.min = range.min + (i * how_many_nums_in_chunk);
+		chunk.max = chunk.min + how_many_nums_in_chunk - 1;
+		if (i == num_of_chunks - 1)
 			chunk.max = range.max;
-		push_numbers_to_b(stack_a, stack_b, chunk);
+		move_chunk_with_pivot_to_b(stack_a, stack_b, chunk);
 		i++;
 	}
 	sort_back_to_a(stack_a, stack_b);

@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:52:29 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 14:49:46 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/02/28 15:44:36 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 		target_position = find_position_of_minimum(stack_a);
 		while (target_position != 1)
 		{
-			move_node_to_top(stack_a, target_position);
+			move_target_node_to_top(stack_a, target_position);
 			target_position = find_position_of_minimum(stack_a);
 		}
-		push_head_from_a_to_b(stack_a, stack_b);
+		push_top_from_a_to_b(stack_a, stack_b);
 	}
 	sort_three_numbers(stack_a);
 	while (stack_b->total_nodes > 0)
-		push_node_from_b_to_a(stack_a, stack_b);
+		push_top_from_b_to_a(stack_a, stack_b);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 22:12:21 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 15:33:39 by hoskim           ###   ########seoul.kr  */
+/*   Created: 2025/02/28 15:40:26 by hoskim            #+#    #+#             */
+/*   Updated: 2025/02/28 15:43:11 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,14 +106,14 @@ void	free_stacks(t_stack *stack_a, t_stack *stack_b);
  * @param stack_a Destination stack
  * @param stack_b Source stack
  */
-void	push_node_from_b_to_a(t_stack *stack_a, t_stack *stack_b);
+void	push_top_from_b_to_a(t_stack *stack_a, t_stack *stack_b);
 
 /**
- * @brief Pushes the top node from stack A to stack B (pb)
- * @param stack_a Source stack
- * @param stack_b Destination stack
+ * @brief Pushes the top node from stack B to stack A (pb)
+ * @param stack_a Destination stack
+ * @param stack_b Source stack
  */
-void	push_head_from_a_to_b(t_stack *stack_a, t_stack *stack_b);
+void	push_top_from_a_to_b(t_stack *stack_a, t_stack *stack_b);
 
 /**
  * @brief Swaps the first two nodes of a stack
