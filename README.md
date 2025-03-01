@@ -1,4 +1,7 @@
-# Super Cool GOAT Stack Sorter
+<h1 align="center">Super Cool GOAT Stack Sorter</h1>
+<p align="center">
+  <img src="images/logo.jpeg" width="600">
+</p>
 
 ![Version](https://img.shields.io/badge/Version-1.0-green)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
