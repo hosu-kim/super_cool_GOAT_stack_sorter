@@ -76,15 +76,15 @@ For larger datasets, the program employs a sophisticated chunking strategy:
 
 ## Installation
 
+Clone the repository:
 ```bash
-# Clone the repository
 git clone https://github.com/hosu-kim/super_cool_GOAT_stack_sorter.git
 ```
 ```bash
 cd super_cool_GOAT_stack_sorter
 ```
+Compile the program:
 ```bash
-# Compile the program
 make
 ```
 
@@ -152,6 +152,17 @@ The program's performance has been optimized to achieve the following operation 
 | 100 numbers | 600-700 operations | Good |
 | 500 numbers | 5000-5500 operations | Good |
 
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 ## Author
 
-- **hosu-kim** (hosu@outlook.cz)
+hosu-kim
+
+## Support
+
+For support, please create an issue in the GitHub repository or contact me directly.
