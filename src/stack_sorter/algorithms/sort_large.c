@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:12:57 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 21:02:54 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/03/01 21:48:49 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,15 @@
  * @param chunk The range defining the minimum and maximum values to be moved
  * @return void
  */
-static void	move_chunk_with_pivot_to_b(t_stack *a, t_stack *b, t_range chunk)
+static void	push_chunk_and_presort_b(t_stack *a, t_stack *b, t_range chunk)
 {
 	int	current_number;
 	int	position_of_num_in_chunk;
-	int	performed_rotations;
 
-	performed_rotations = 0;
-	while (a->total_nodes > 0 && performed_rotations < a->total_nodes)
+	while (a->total_nodes > 0)
 	{
 		current_number = a->top_node->stored_number;
-		if (current_number >= chunk.min && current_number <= chunk.max)
+		if (chunk.min <= current_number && current_number <= chunk.max)
 		{
 			push_top_a_to_b(a, b);
 			if (b->top_node->stored_number < (chunk.min + chunk.max) / 2)
@@ -47,7 +45,6 @@ static void	move_chunk_with_pivot_to_b(t_stack *a, t_stack *b, t_range chunk)
 			if (position_of_num_in_chunk == -1)
 				break ;
 			move_target_node_to_top(a, position_of_num_in_chunk);
-			performed_rotations++;
 		}
 	}
 }
@@ -121,7 +118,7 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b)
 		chunk.max = chunk.min + how_many_nums_in_chunk - 1;
 		if (i == num_of_chunks - 1)
 			chunk.max = range.max;
-		move_chunk_with_pivot_to_b(stack_a, stack_b, chunk);
+		push_chunk_and_presort_b(stack_a, stack_b, chunk);
 		i++;
 	}
 	sort_back_to_a(stack_a, stack_b);
