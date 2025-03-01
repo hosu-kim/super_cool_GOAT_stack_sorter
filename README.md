@@ -164,7 +164,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 This project is licensed under the MIT License - see the LICENSE file for details.
 ## Author
 
-hosu-kim
+hosu-kim (hosu@outlook.cz)
 
 ## Support
 
