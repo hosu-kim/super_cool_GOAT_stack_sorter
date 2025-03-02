@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 00:30:06 by hoskim            #+#    #+#             */
-/*   Updated: 2025/03/02 15:32:27 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/03/02 15:53:01 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	int		i;
 
 	if (argc < 2)
-		return (0);
+		error_exit();
 	stack_a = create_stack();
 	stack_b = create_stack();
 	i = argc - 1;
