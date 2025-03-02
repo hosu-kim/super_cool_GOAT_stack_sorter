@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:40:26 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 20:11:03 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/03/02 15:32:40 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -276,17 +276,23 @@ t_range	find_number_range(t_stack *stack);
 void	error_exit(void);
 
 /**
+ * @breif cleans up memory and executes error_exit()
+ */
+void	cleanup_and_error_exit(t_stack *stack_a, t_stack *stack_b);
+
+/**
  * @brief Converts a string to an integer, with error handling
  * @param str The string to convert
  * @return The converted integer value
  */
-int		ft_atoi(const char *str);
+
+int		ft_atoi(const char *str, t_stack *stack_a, t_stack *stack_b);
 
 /**
  * @brief Checks if there are duplicate numbers in the stack
  * @param stack The stack to check
  */
-void	same_number_checker(t_stack *stack);
+int		same_number_checker(t_stack *stack);
 
 /**
  * @brief Checks if the stack is already sorted

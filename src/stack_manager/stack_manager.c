@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 23:21:49 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 19:52:38 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/03/02 15:38:20 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ int	extract_top_node_and_remove(t_stack *stack)
 	t_node	*temp_top_node;
 	int		temp_top_node_number;
 
-	if (stack->total_nodes == 0)
-		error_exit();
 	temp_top_node = stack->top_node;
 	temp_top_node_number = temp_top_node->stored_number;
 	stack->top_node = temp_top_node->next_node;

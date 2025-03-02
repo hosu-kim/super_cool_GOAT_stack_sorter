@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:13:51 by hoskim            #+#    #+#             */
-/*   Updated: 2025/02/28 21:02:06 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/03/02 15:30:57 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ void	error_exit(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
+}
+
+void	cleanup_and_error_exit(t_stack *stack_a, t_stack *stack_b)
+{
+	free_stacks(stack_a, stack_b);
+	error_exit();
 }
 
 /**
@@ -46,7 +52,7 @@ void	error_exit(void)
  * @param str The string to convert to an integer
  * @return int The converted integer value
  */
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, t_stack *stack_a, t_stack *stack_b)
 {
 	int		is_minus;
 	long	result;
@@ -65,11 +71,11 @@ int	ft_atoi(const char *str)
 	{
 		result = result * 10 + (*str - '0');
 		if (result * is_minus > INT_MAX || result * is_minus < INT_MIN)
-			error_exit();
+			cleanup_and_error_exit(stack_a, stack_b);
 		str++;
 	}
 	if (*str != '\0')
-		error_exit();
+		cleanup_and_error_exit(stack_a, stack_b);
 	return (is_minus * result);
 }
 
@@ -85,7 +91,7 @@ int	ft_atoi(const char *str)
  * @param stack The stack to check for dupllicate values
  * @return void
  */
-void	same_number_checker(t_stack *stack)
+int	same_number_checker(t_stack *stack)
 {
 	t_node	*base_node;
 	t_node	*compare_node;
@@ -97,11 +103,12 @@ void	same_number_checker(t_stack *stack)
 		while (compare_node)
 		{
 			if (base_node->stored_number == compare_node->stored_number)
-				error_exit();
+				return (0);
 			compare_node = compare_node->next_node;
 		}
 		base_node = base_node->next_node;
 	}
+	return (1);
 }
 
 /**
