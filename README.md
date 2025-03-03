@@ -18,11 +18,10 @@ A highly optimized integer sorting project implementing custom stack-based sorti
 7. [Examples](#examples)
 8. [Testing](#testing)
 9. [Program Structure](#program-structure)
-10. [Performance](#performance)
-11. [Contributing](#contributing)
-12. [License](#license)
-13. [Author](#author)
-14. [Support](#support)
+10. [Contributing](#contributing)
+11. [License](#license)
+12. [Author](#author)
+13. [Support](#support)
 
 ## Overview
 
@@ -187,17 +186,6 @@ For optimal grading results, aim for:
 | **Operation Modules** | Implementation of push, swap, rotate and reverse operations |
 | **Sorting Algorithms** | Small-set and large-set sorting strategies |
 | **Utility Functions** | Input validation, error handling, and helper functions |
-
-## Performance
-
-The program's performance has been optimized to achieve the following operation counts:
-
-| Input Size | Average Operations | Performance Rating |
-|------------|-------------------|-------------------|
-| 3 numbers | 1-2 operations | Excellent |
-| 5 numbers | 8-12 operations | Excellent |
-| 100 numbers | 600-700 operations | Good |
-| 500 numbers | 5000-5500 operations | Good |
 
 ## Contributing
 
