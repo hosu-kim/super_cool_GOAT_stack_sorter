@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:40:26 by hoskim            #+#    #+#             */
-/*   Updated: 2025/03/02 15:32:40 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/03/03 21:35:58 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,7 +239,14 @@ int		find_min_moves_to_top(int position_of_node, int stack_size);
  * @param stack_a The stack to modify
  * @param position_of_node The position of the node to move
  */
+
+/**
+ * @brief Normalizes stack values to sequential ranks (1 to n)
+ * @param stack The stack to normalize
+ */
 void	move_target_node_to_top(t_stack *stack_a, int position_of_node);
+
+void	normalize_stack_values(t_stack *stack);
 
 /**
  * brief Finds the position of the node with the minimum value
