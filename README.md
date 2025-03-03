@@ -16,9 +16,13 @@ A highly optimized integer sorting project implementing custom stack-based sorti
 5. [Installation](#installation)
 6. [Usage](#usage)
 7. [Examples](#examples)
-8. [Program Structure](#program-structure)
-9. [Performance](#performance)
-10. [Author](#author)
+8. [Testing](#testing)
+9. [Program Structure](#program-structure)
+10. [Performance](#performance)
+11. [Contributing](#contributing)
+12. [License](#license)
+13. [Author](#author)
+14. [Support](#support)
 
 ## Overview
 
@@ -134,6 +138,46 @@ Error
 ```
 The program detects duplicate values and outputs an error message.
 
+## Testing
+
+You can verify the correctness of your push_swap implementation using the provided checker program located in the `test` directory:
+
+```bash
+ARG="4 67 3 87 23"; ./test/push_swap $ARG | ./checker_linux $ARG
+```
+
+This command:
+1. Generates a sequence of operations from your push_swap program
+2. Pipes these operations to the checker program
+3. The checker verifies if the operations correctly sort the input numbers
+
+### Checker Results
+
+The checker will output one of the following:
+- `OK`: The operations correctly sort the input numbers
+- `KO`: The operations fail to sort the input numbers
+- `Error`: An error occurred during execution (invalid operation or other issue)
+
+### Testing Random Inputs
+
+For thorough testing with random numbers:
+
+```bash
+# Test with 5 random numbers
+ARG=$(shuf -i 1-100 -n 5 | tr "\n" " "); echo $ARG; ./push_swap $ARG | ./test/checker_linux $ARG
+
+# Test with 100 random numbers and count operations
+ARG=$(shuf -i 1-1000 -n 100 | tr "\n" " "); ./push_swap $ARG | wc -l
+```
+
+### Performance Benchmarks
+
+For optimal grading results, aim for:
+- 3 numbers: ≤ 2 operations
+- 5 numbers: ≤ 12 operations
+- 100 numbers: ≤ 700 operations 
+- 500 numbers: ≤ 5500 operations
+
 ## Program Structure
 
 | Component | Description |
@@ -162,6 +206,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
 ## Author
 
 hosu-kim (hosu@outlook.cz)
