@@ -142,7 +142,7 @@ The program detects duplicate values and outputs an error message.
 You can verify the correctness of your push_swap implementation using the provided checker program located in the `test` directory:
 
 ```bash
-ARG="4 67 3 87 23"; ./test/push_swap $ARG | ./checker_linux $ARG
+ARG="4 67 3 87 23"; ./push_swap $ARG | ./test/checker_linux $ARG
 ```
 
 This command:
