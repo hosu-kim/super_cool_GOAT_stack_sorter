@@ -6,7 +6,7 @@
 #    By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/26 22:12:47 by hoskim            #+#    #+#              #
-#    Updated: 2025/02/25 19:22:34 by hoskim           ###   ########seoul.kr   #
+#    Updated: 2025/03/04 18:58:32 by hoskim           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS = $(MAIN_DIR)/push_swap.c \
 		$(ALGORITHMS_DIR)/sort_small.c \
 		$(STACK_SORTER_UTILS_DIR)/stack_move_utils.c \
 		$(STACK_SORTER_UTILS_DIR)/stack_position_utils.c \
+		$(STACK_SORTER_UTILS_DIR)/stack_normalize_utils.c \
 		$(STACK_SORTER_UTILS_DIR)/stack_range_utils.c \
 		$(UTILS_DIR)/general_utils.c
 

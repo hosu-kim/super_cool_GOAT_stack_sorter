@@ -6,7 +6,7 @@
 /*   By: hoskim <hoskim@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 21:12:55 by hoskim            #+#    #+#             */
-/*   Updated: 2025/03/03 21:31:15 by hoskim           ###   ########seoul.kr  */
+/*   Updated: 2025/03/04 19:07:30 by hoskim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ void	normalize_stack_values(t_stack *stack)
 		current = current->next_node;
 	}
 	update_stack_with_normalized(stack, normalized_values);
-	free(normalize_stack_values);
+	free(normalized_values);
 }
