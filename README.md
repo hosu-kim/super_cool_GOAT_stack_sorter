@@ -6,7 +6,7 @@
 ![Version](https://img.shields.io/badge/Version-1.0-green)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
-A highly optimized integer sorting project implementing custom stack-based sorting algorithms through the `push_swap` program.
+A highly optimized integer sorting project implementing the chunk sorting algorithm through the `push_swap` program.
 
 ## Table of Contents
 1. [Overview](#overview)
